@@ -28,3 +28,4 @@ jobs:
         set -x
         snap version
         echo $PATH
+        cat /etc/environment

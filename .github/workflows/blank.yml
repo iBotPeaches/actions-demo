@@ -39,4 +39,4 @@ jobs:
           echo "LocaleCtl"
           localectl status
           echo "Printing decimal"
-          printf "%'.3f\n" 123123,123
+          /bin/bash -c "printf \"%'.3f\n\" 123123,123"

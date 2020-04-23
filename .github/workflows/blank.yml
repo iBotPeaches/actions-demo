@@ -21,9 +21,22 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
+    - name: SetLocale
       run: |
-        set -x
-        cat /etc/environment
+          sudo apt-get update && sudo apt-get install tzdata locales -y && sudo locale-gen pt_BR.UTF-8
+          sudo localectl set-locale LANG="pt_BR.UTF-8"
+          export LANG="pt_BR.UTF-8"
+          sudo update-locale
+          echo "Testing language settings"
+          echo "All languages..."
+          locale -a
+          echo "Actual locale"
+          locale
+          echo "Actual numeric settings"
+          locale -c -k LC_NUMERIC
+          echo "LANG Variable"
+          echo "$LANG"
+          echo "LocaleCtl"
+          localectl status
+          echo "Printing decimal"
+          printf "%'.3f\n" 123123,123

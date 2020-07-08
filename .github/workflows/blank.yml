@@ -28,8 +28,9 @@ jobs:
       run: |
           set -x
           hostname
-          for in in {1..25};do
-          curl --retry 4 -fsSL -o sbt.tgz https://piccolo.link/sbt-${{env.sbtVersion}}.tgz
-          curl -fSL -o sbt.tgz https://piccolo.link/sbt-${{env.sbtVersion}}.tgz
+          for i in {1..50};do
+          echo $i
+          curl --retry 4 -fsSL -o sbt.tgz https://piccolo.link/sbt-${{env.sbtVersion}}.tgz || exit 1
+          curl -fSL -o sbt.tgz https://piccolo.link/sbt-${{env.sbtVersion}}.tgz || exit 1
           done          
           

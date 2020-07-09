@@ -30,7 +30,8 @@ jobs:
           hostname
           for i in {1..50};do
           echo $i
-          curl --retry 4 -fsSL -o sbt.tgz https://piccolo.link/sbt-${{env.sbtVersion}}.tgz || exit 1
-          curl -fSL -o sbt.tgz https://piccolo.link/sbt-${{env.sbtVersion}}.tgz || exit 1
+            tracepath piccolo.link
+            curl --retry 4 -fsSL -o sbt.tgz https://piccolo.link/sbt-${{env.sbtVersion}}.tgz || exit 1
+            curl -fSL -o sbt.tgz https://piccolo.link/sbt-${{env.sbtVersion}}.tgz || exit 1
           done          
           

@@ -24,6 +24,10 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    
+    - name: Update Pester
+      run: |
+        Install-Module -Name Pester -Force -SkipPublisherCheck
       
     - name: SqlPowerShellTools inline
       run: |

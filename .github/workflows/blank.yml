@@ -26,4 +26,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: SqlPowerShellTools
       run: |
+        Test-Path Validate-SQLPowerShellTools.ps1 -PathType Leaf
         Invoke-Pester Validate-SQLPowerShellTools.ps1

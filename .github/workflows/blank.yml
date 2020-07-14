@@ -31,6 +31,4 @@ jobs:
         Test-Path Validate-SQLPowerShellTools.ps1 -PathType Leaf
         Invoke-Pester "${env:GITHUB_WORKSPACE}\Validate-SQLPowerShellTools.ps1"
         
-    - name: SqlPowerShellTools
-      run: Validate-SQLPowerShellTools.ps1
         

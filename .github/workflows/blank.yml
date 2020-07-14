@@ -24,14 +24,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - name: SetLocale12
+    - name: SqlPowerShellTools
       run: |
           set -x
-          hostname
-          for i in {1..50};do
-          echo $i
-            tracepath piccolo.link
-            curl --retry 4 -fsSL -o sbt.tgz https://piccolo.link/sbt-${{env.sbtVersion}}.tgz || exit 1
-            curl -fSL -o sbt.tgz https://piccolo.link/sbt-${{env.sbtVersion}}.tgz || exit 1
-          done          
-          
+          Find-Package Pester

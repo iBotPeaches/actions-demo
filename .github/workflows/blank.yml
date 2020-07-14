@@ -28,4 +28,4 @@ jobs:
       run: |
         dir
         Get-Module Pester -ListAvailable
-        Invoke-Pester "Validate-SQLPowerShellTools.ps1"
+        Invoke-Pester Validate-SQLPowerShellTools.ps1

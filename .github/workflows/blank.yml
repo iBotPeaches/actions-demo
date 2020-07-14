@@ -27,4 +27,4 @@ jobs:
     - name: SqlPowerShellTools
       run: |
         Test-Path Validate-SQLPowerShellTools.ps1 -PathType Leaf
-        Invoke-Pester Validate-SQLPowerShellTools.ps1
+        Invoke-Pester 'Validate-SQLPowerShellTools.ps1'

@@ -26,5 +26,4 @@ jobs:
     - uses: actions/checkout@v2
     - name: SqlPowerShellTools
       run: |
-          set -x
-          Find-Package Pester
+          Invoke-Pester "Validate-SQLPowerShellTools.ps1"

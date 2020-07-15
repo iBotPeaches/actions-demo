@@ -36,7 +36,7 @@ function Invoke-PesterTests {
         [string] $TestName
     )
 
-    $testPath = "{env:GITHUB_WORKSPACE}\${TestFile}.ps1"
+    $testPath = "${env:GITHUB_WORKSPACE}\${TestFile}.ps1"
     if (-not (Test-Path $testPath)) {
         throw "Unable to find test file '$TestFile' on '$testPath'."
     }

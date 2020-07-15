@@ -130,3 +130,12 @@ If (Get-Command -Name Add-AssertionOperator -ErrorAction SilentlyContinue) {
 
 Invoke-PesterTests -TestFile "Validate-SQLPowerShellTools"
 Invoke-PesterTests -TestFile "Stack.Tests"
+Invoke-PesterTests -TestFile "Svn.Tests"
+Invoke-PesterTests -TestFile "Typescript.Tests"
+Invoke-PesterTests -TestFile "Vcpkg.Tests"
+Invoke-PesterTests -TestFile "VSWhereWDK.Tests"
+Invoke-PesterTests -TestFile "SSDTExtensions.Tests"
+Invoke-PesterTests -TestFile "WinAppDriver.Tests"
+Invoke-PesterTests -TestFile "WindowsUpdates.Tests"
+Invoke-PesterTests -TestFile "Wix.Tests"
+Invoke-PesterTests -TestFile "Zstd.Tests"

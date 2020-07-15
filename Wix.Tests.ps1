@@ -10,10 +10,10 @@ Describe "Wix" {
       {
        $wadPath = "${env:ProgramFiles}\$wad"
       }
-      Test-Path -Path $wadPath | Should Be $true
+      Test-Path -Path $wadPath | -Should -Be $true
     }
     It "Developer Mode is enabled" {
       $path = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock";
-      Get-ItemProperty -Path $path | Select-Object -ExpandProperty "AllowDevelopmentWithoutDevLicense" | Should -Be 1
+      Get-ItemProperty -Path $path | Select-Object -ExpandProperty "AllowDevelopmentWithoutDevLicense" | -Should -Be 1
     }
 }

@@ -1,19 +1,26 @@
+Import-Module -Name ImageHelpers -Force
+
+function Get-WixVersion {
+    $regKey = "HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*"
+    $installedApplications = Get-ItemProperty -Path $regKey
+    $Version = ($installedApplications | Where-Object { $_.DisplayName -and $_.DisplayName.toLower().Contains("wix") } | Select-Object -First 1).DisplayVersion
+    return $Version
+}
 
 Describe "Wix" {
-    It "wix directory exists" {
-      $wad = "Windows Application Driver" 
-      if (${env:ProgramFiles(x86)})
+    It "Wix Toolset version from registry" {
+      $WixToolSetVersion = Get-WixVersion
+      "$WixToolSetVersion" | Should -Not -Be ""
+    }
+    It "Wix Toolset version from system" {
+      if (Test-IsWin19)
       {
-        $wadPath = "${env:ProgramFiles(x86)}\$wad"
+        $exVersion = Get-VSExtensionVersion -packageName "WixToolset.VisualStudioExtension.Dev16"
       }
       else
       {
-       $wadPath = "${env:ProgramFiles}\$wad"
+        $exVersion = Get-VSExtensionVersion -packageName "WixToolset.VisualStudioExtension.Dev15"
       }
-      Test-Path -Path $wadPath | Should -Be $true
-    }
-    It "Developer Mode is enabled" {
-      $path = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock";
-      Get-ItemProperty -Path $path | Select-Object -ExpandProperty "AllowDevelopmentWithoutDevLicense" | Should -Be 1
+      "$exVersion" | Should -Not -Be ""
     }
 }

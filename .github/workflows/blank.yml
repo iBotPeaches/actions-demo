@@ -30,7 +30,6 @@ jobs:
         Install-Module -Name Pester -Force -SkipPublisherCheck
       
     - name: SqlPowerShellTools inline
-      run: |
-        Invoke-Pester "${env:GITHUB_WORKSPACE}\Validate-SQLPowerShellTools.ps1"
+      run: run-test.ps1
         
         

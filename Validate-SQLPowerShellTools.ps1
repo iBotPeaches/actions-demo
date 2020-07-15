@@ -5,6 +5,6 @@ Describe 'Validate SQLPowerShellTools' {
   }
   It 'The SQLPS module exists' {
      $modules = Get-Module -Name SQLPS -ListAvailable
-     $modules.Count | Should -Be 2
+     $modules.Count | Should -Be 1
   }
 }

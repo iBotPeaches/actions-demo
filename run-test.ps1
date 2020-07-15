@@ -129,3 +129,4 @@ If (Get-Command -Name Add-AssertionOperator -ErrorAction SilentlyContinue) {
 }
 
 Invoke-PesterTests -TestFile "Validate-SQLPowerShellTools"
+Invoke-PesterTests -TestFile "Stack.Tests"

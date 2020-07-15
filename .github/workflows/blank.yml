@@ -30,6 +30,6 @@ jobs:
         Install-Module -Name Pester -Force -SkipPublisherCheck
       
     - name: SqlPowerShellTools inline
-      run: run-test.ps1
+      run: .\run-test.ps1
         
         

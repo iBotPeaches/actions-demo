@@ -13,9 +13,9 @@ Describe "SSDTExtensions" {
       $version = Get-VSExtensionVersion -packageName "717ad572-c4b7-435c-c166-c2969777f718"
       "$version" | Should -Not -Be ""
     }
-    // TODO: not found
-  //  It "Extensions id=$id2" {
-  //    $version = Get-VSExtensionVersion -packageName "851e7a09-7b2b-4f06-a15d-babfcb26b970"
-  //    "$version" | Should -Not -Be ""
-  //  }
+  # TODO: not found
+  #  It "Extensions id=$id2" {
+  #    $version = Get-VSExtensionVersion -packageName "851e7a09-7b2b-4f06-a15d-babfcb26b970"
+  #    "$version" | Should -Not -Be ""
+  #  }
 }

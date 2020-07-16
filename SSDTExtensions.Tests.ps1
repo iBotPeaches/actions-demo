@@ -5,7 +5,7 @@ Describe "SSDTExtensions" {
     $id2 = "851E7A09-7B2B-4F06-A15D-BABFCB26B970"
     $id3 = "717ad572-c4b7-435c-c166-c2969777f718"
     It "Extensions id=$id1" {
-    // TODO: replace with variables
+    # TODO: replace with variables
       $version = Get-VSExtensionVersion -packageName "04a86fc2-dbd5-4222-848e-911638e487fe"
       "$version" | Should -Not -Be ""
     }

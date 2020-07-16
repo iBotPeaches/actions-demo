@@ -10,13 +10,12 @@ Describe "SSDTExtensions" {
       $version = Get-VSExtensionVersion -packageName ${Global:id1}
       "$version" | Should -Not -Be ""
     }
-    It "Extensions id=${Global:id2}" {
-      $version = Get-VSExtensionVersion -packageName ${Global:id2}
+#    It "Extensions id=${Global:id2}" {
+#      $version = Get-VSExtensionVersion -packageName ${Global:id2}
+#      "$version" | Should -Not -Be ""
+#    }
+    It "Extensions id=${Global:id3}" {
+      $version = Get-VSExtensionVersion -packageName ${Global:id3}
       "$version" | Should -Not -Be ""
     }
-  # TODO: not found
-  #  It "Extensions id=$id2" {
-  #    $version = Get-VSExtensionVersion -packageName "851e7a09-7b2b-4f06-a15d-babfcb26b970"
-  #    "$version" | Should -Not -Be ""
-  #  }
 }

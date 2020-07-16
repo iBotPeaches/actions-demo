@@ -13,7 +13,7 @@ Describe "SSDTExtensions" {
       "$version" | Should -Not -Be ""
     }
     It "Extensions id=$id2" {
-      $version = Get-VSExtensionVersion -packageName "851E7A09-7B2B-4F06-A15D-BABFCB26B970"
+      $version = Get-VSExtensionVersion -packageName "851e7a09-7b2b-4f06-a15d-babfcb26b970"
       "$version" | Should -Not -Be ""
     }
 }

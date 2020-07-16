@@ -138,5 +138,5 @@ Invoke-PesterTests -TestFile "VSWhereWDK.Tests"
 Invoke-PesterTests -TestFile "WinAppDriver.Tests"
 Invoke-PesterTests -TestFile "SSDTExtensions.Tests"
 
-Invoke-PesterTests -TestFile "Wix.Tests"
 Invoke-PesterTests -TestFile "WindowsUpdates.Tests"
+Invoke-PesterTests -TestFile "Wix.Tests"

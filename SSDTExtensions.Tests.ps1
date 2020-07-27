@@ -11,7 +11,8 @@ Describe "SSDTExtensions" {
         (
             [string] $id
         )
-   $version = Get-VSExtensionVersion -packageName $id
+   Write-Host "id=${id}"
+   $version = Get-VSExtensionVersion -packageName "${id}"
    $version | Should -Not -BeNullOrEmpty
  }
 }

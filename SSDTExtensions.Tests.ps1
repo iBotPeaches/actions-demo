@@ -6,5 +6,8 @@ Describe "SSDTExtensions" {
 @{id = "851E7A09-7B2B-4F06-A15D-BABFCB26B970"}
 @{id = "717ad572-c4b7-435c-c166-c2969777f718"}
 )
- It "Extensions id=<id>" -TestCases $testExtenions {}
+ It "Extensions id=<id>" -TestCases $testExtenions {
+   $version = Get-VSExtensionVersion -packageName <id>
+   $version | Should -Not -BeNullOrEmpty
+ }
 }

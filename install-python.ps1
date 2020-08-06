@@ -1,3 +1,25 @@
+function Execute-Command {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory=$true)][string] $Command
+    )
+
+    Write-Debug "Execute $Command"
+
+    try {
+        Invoke-Expression $Command | ForEach-Object { Write-Host $_ }
+        if ($LASTEXITCODE -ne 0) { throw "Exit code: $LASTEXITCODE"}
+    }
+    catch {
+        $errorMessage = "Error happened during command execution: $Command `n $_"
+        Write-Host $errorMessage
+        if ($ErrorActionPreference -ne "Continue") {
+            # avoid logging Azure DevOps issues in case of $ErrorActionPreference -eq Continue
+            Write-Host "##vso[task.logissue type=error;] $errorMessage"
+        }
+    }
+}
+
 function Download-File {
     param(
         [Parameter(Mandatory=$true)]
@@ -25,12 +47,7 @@ function GetPkgUri() {
 }
 
 function Download() {
-	<#
-	.SYNOPSIS
-	Download Python pkg. Returns the downloaded file location path.
-	#>
-
-	$pkgUri = GetPkgUri()
+	$pkgUri = GetPkgUri
 	Write-Host "pkg URI: $pkgUri"
 
 	$pgkFilepath = Download-File -Uri $pkgUri -OutputFolder '/tmp'
@@ -42,8 +59,10 @@ function Download() {
 
 function Build() {
 	Write-Host "Download Python $($this.Version)[$($this.Architecture)] pkg..."
-	$pkgLocation = Download()
+	$pkgLocation = Download
 
 	Write-Host "Install Python $($this.Version)[$($this.Architecture)] pkg..."
 	Execute-Command -Command "sudo installer -pkg $pkgLocation -target /"
 }
+
+Build

@@ -29,3 +29,12 @@ jobs:
       shell: pwsh
       run: ./install-python.ps1
 
+    - name: Update Python profile
+      run:  /Applications/Python\ 3.8/Update\ Shell\ Profile.command
+      
+    - name: Confirm the pyton is active
+      run: |
+        . ~/.bash_profile
+        which python3
+        test `which python3` = '/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
+

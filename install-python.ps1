@@ -62,7 +62,9 @@ function Build() {
 	$pkgLocation = Download
 
 	Write-Host "Install Python $($this.Version)[$($this.Architecture)] pkg..."
-	Execute-Command -Command "sudo installer -pkg $pkgLocation -target /"
+        rm -rf /tmp/p
+        mkdir /tmp/p
+	Execute-Command -Command "sudo installer -pkg $pkgLocation -target '/'"
 }
 
 Build

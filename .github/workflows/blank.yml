@@ -38,3 +38,21 @@ jobs:
         which python3
         test `which python3` = '/Library/Frameworks/Python.framework/Versions/3.8/bin/python3'
 
+    - name: 'Verbose sysconfig dump'
+      run: |
+        . ~/.bash_profile
+        cd tests
+        python3 ./sources/python-config-output.py
+
+    - name: 'Verbose python binary links'
+      run: |
+        . ~/.bash_profile
+        pythonLocation=`which python3`
+        otool -L $pythonLocation
+
+    - name: 'Run pester tests'
+      run: |
+        . ~/.bash_profile
+        cd tests
+        pwsh run-pesters.ps1
+

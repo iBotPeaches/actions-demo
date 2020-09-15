@@ -30,7 +30,7 @@ jobs:
           $f -version | grep 'Version: ImageMagick' || exit 1
         done
         sudo apt-get install libmagickwand-dev
-        MagickWand-config --version
+        pkg-config --cflags --libs MagickWand
     
     - name: build magic-core
       run: |

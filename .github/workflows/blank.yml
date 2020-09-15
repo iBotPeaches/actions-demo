@@ -48,7 +48,7 @@ jobs:
     - name: build magic-wand
       run: |
         cat <<EOT >main.c
-        #include "wand/magic_wand.h"
+        #include "wand/magick_wand.h"
         #include <stdio.h>
         
         int main() {

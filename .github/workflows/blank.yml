@@ -28,6 +28,7 @@ jobs:
           echo $f
           $f -version | grep 'Version: ImageMagick' || exit 1
         done
+        MagickWand-config
     
     - name: build magic-core
       run: |

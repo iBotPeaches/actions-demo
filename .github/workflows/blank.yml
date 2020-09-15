@@ -28,6 +28,7 @@ jobs:
           echo $f
           $f -version | grep 'Version: ImageMagick' || exit 1
         done
+        Wand-config
     
     - name: Confirm the expected lib
       run: |
@@ -37,5 +38,5 @@ jobs:
           InitializeMagick([]);
         }
         EOT
-        cat main.c
+        cat /usr/include/magic.h
         gcc main.c

@@ -40,4 +40,6 @@ jobs:
           printf("magic_version returns %d\n", ver);
         }
         EOT
-        gcc main.c
+        gcc main.c -limagemagic -o test
+        ./test
+

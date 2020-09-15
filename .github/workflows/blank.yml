@@ -54,7 +54,5 @@ jobs:
           InitializeMagick([]);
         }
         EOT
-        ls -l /usr/include
-        ls -l /usr/include/wand
-        gcc main.c -lMagickWand -o test
+        gcc main.c -IImageMagick-6 -lMagickWand -o test
         ./test

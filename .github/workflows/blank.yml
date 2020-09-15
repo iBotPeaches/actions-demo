@@ -24,11 +24,13 @@ jobs:
     
     - name: Confirm the expected cli
       run: |
+        set -x
         for f in animate compare composite conjure convert display identify import mogrify montage stream;do
           echo $f
           $f -version | grep 'Version: ImageMagick' || exit 1
         done
-        MagickWand-config
+        sudo apt-get install libmagickwand-dev
+        MagickWand-config --version
     
     - name: build magic-core
       run: |
@@ -43,7 +45,6 @@ jobs:
         EOT
         gcc main.c -lmagic -o test
         ./test
-
     
     - name: build magic-wand
       run: |

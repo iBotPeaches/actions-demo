@@ -29,7 +29,6 @@ jobs:
           echo $f
           $f -version | grep 'Version: ImageMagick' || exit 1
         done
-        sudo apt-get install libmagickwand-dev
         pkg-config --cflags --libs MagickWand
     
     - name: build magic-core

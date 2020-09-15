@@ -29,7 +29,7 @@ jobs:
           $f -version | grep 'Version: ImageMagick' || exit 1
         done
     
-    - name: Confirm the expected lib
+    - name: build magic-core
       run: |
         cat <<EOT >main.c
         #include "magic.h"
@@ -43,3 +43,16 @@ jobs:
         gcc main.c -lmagic -o test
         ./test
 
+    
+    - name: build magic-wand
+      run: |
+        cat <<EOT >main.c
+        #include "wand/magic_wand.h"
+        #include <stdio.h>
+        
+        int main() {
+          InitializeMagick([]);
+        }
+        EOT
+        gcc main.c -lmagicwand -o test
+        ./test

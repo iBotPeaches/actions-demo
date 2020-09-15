@@ -55,5 +55,6 @@ jobs:
           InitializeMagick([]);
         }
         EOT
+        echo "gcc main.c `pkg-config --cflags --libs MagickWand` -o test"
         gcc main.c `pkg-config --cflags --libs MagickWand` -o test
         ./test

@@ -56,5 +56,5 @@ jobs:
           InitializeMagick([]);
         }
         EOT
-        gcc main.c -IImageMagick-6 -lMagickWand -o test
+        gcc main.c `pkg-config --cflags --libs MagickWand` -o test
         ./test

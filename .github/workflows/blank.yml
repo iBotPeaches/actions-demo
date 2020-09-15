@@ -54,5 +54,5 @@ jobs:
           InitializeMagick([]);
         }
         EOT
-        gcc main.c -lmagicwand -o test
+        gcc main.c -lMagickWand -o test
         ./test

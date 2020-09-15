@@ -33,11 +33,11 @@ jobs:
       run: |
         cat <<EOT >main.c
         #include "magic.h"
-        #include "magick/ImageMagick.h"
+        #include <stdio.h>
         
         int main() {
-          InitializeMagick([]);
+          int ver=magic_version();
+          printf("magic_version returns %d\n", ver);
         }
         EOT
-        cat /usr/include/magic.h
         gcc main.c

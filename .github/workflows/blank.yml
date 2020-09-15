@@ -25,5 +25,6 @@ jobs:
     - name: Confirm the expected cli
       run: |
         for f in animate compare composite conjure convert display identify import mogrify montage stream;do
-          $f -version | grep ImageMagic || exit 1
+          echo $f
+          $f -version | grep 'Version: ImageMagick' || exit 1
         done

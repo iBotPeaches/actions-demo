@@ -24,5 +24,6 @@ jobs:
     
     - name: Confirm the expected cli
       run: |
-        which mogrify
-        mogrify -version
+        for f in animate compare composite conjure convert display identify import mogrify montage stream;do
+          $f -version | grep ImageMagic || exit 1
+        done

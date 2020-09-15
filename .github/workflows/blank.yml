@@ -28,14 +28,13 @@ jobs:
           echo $f
           $f -version | grep 'Version: ImageMagick' || exit 1
         done
-        Wand-config --cflags
-        Wand-config --ldflags
-        Wand-config --libs
     
     - name: Confirm the expected lib
       run: |
         cat <<EOT >main.c
         #include "magic.h"
+        #include "magick/ImageMagick.h"
+        
         int main() {
           InitializeMagick([]);
         }

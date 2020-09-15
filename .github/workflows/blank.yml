@@ -52,7 +52,7 @@ jobs:
         #include <stdio.h>
         
         int main() {
-          InitializeMagick([]);
+          MagickCoreGenesis(path,MagickFalse);
         }
         EOT
         echo "gcc main.c `pkg-config --cflags --libs MagickWand` -o test"

@@ -28,7 +28,9 @@ jobs:
           echo $f
           $f -version | grep 'Version: ImageMagick' || exit 1
         done
-        Wand-config
+        Wand-config --cflags
+        Wand-config --ldflags
+        Wand-config --libs
     
     - name: Confirm the expected lib
       run: |

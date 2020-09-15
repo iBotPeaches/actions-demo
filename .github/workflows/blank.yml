@@ -32,7 +32,7 @@ jobs:
     - name: Confirm the expected lib
       run: |
         cat <<EOT >main.c
-        #include "magick.h"
+        #include "magic.h"
         int main() {
           InitializeMagick([]);
         }

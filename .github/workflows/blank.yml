@@ -34,10 +34,10 @@ jobs:
         }
         EOT
         sleep 5
-        curl -s http://localhost:8080/hellox.hack 
-        #code=$(curl -s -w "%{http_code} \\n" http://localhost:8080/hellox.hack -o /dev/null)
-        #test $code = 404 || (echo "wrong URL returns $code, expected 404";exit 1)
-        curl -s http://localhost:8080/hello.hack 
-        #code=$(curl -s -w "%{http_code} \\n" http://localhost:8080/hello.hack -o /dev/null)
-        #test $code = 200 || (echo "correct URL returns $code, expected 200";exit 1)
+        #curl -s http://localhost:8080/hellox.hack 
+        code=$(curl -s -w "%{http_code} \\n" http://localhost:8080/hellox.hack -o /dev/null)
+        test $code = 404 || (echo "wrong URL returns $code, expected 404";exit 1)
+        #curl -s http://localhost:8080/hello.hack 
+        code=$(curl -s -w "%{http_code} \\n" http://localhost:8080/hello.hack -o /dev/null)
+        test $code = 200 || (echo "correct URL returns $code, expected 200";exit 1)
 

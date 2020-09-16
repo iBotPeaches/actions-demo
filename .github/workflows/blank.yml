@@ -34,5 +34,9 @@ jobs:
         echo "Hello World!\n";
         }
         EOT
+        code=$(curl -sL -w "%{http_code} \\n" http://localhost:8080/hellox.hack -o /dev/null)
+        test $code = 404 || exit 1
         curl http://localhost:8080/hellox.hack
+        code=$(curl -sL -w "%{http_code} \\n" http://localhost:8080/hello.hack -o /dev/null)
+        test $code = 200 || exit 1
 

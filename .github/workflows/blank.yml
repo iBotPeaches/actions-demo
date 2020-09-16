@@ -25,5 +25,6 @@ jobs:
     - name: Confirm the expected cli
       run: |
         set -x
-        hhvm -m server -p 8080
+        # hhvm -m server -p 8080
+        hhvm -h
         ps

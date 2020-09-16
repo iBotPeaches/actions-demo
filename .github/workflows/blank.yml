@@ -28,3 +28,10 @@ jobs:
         hhvm -m daemon -p 8080
         sleep 5
         ps
+        cat > hello.hack <<EOT
+        <<__EntryPoint>>
+function main(): void {
+  echo "Hello World!\n";
+}
+        EOT
+        http://localhost:8080/hello.hack

@@ -30,8 +30,9 @@ jobs:
         ps
         cat ello.hack <<EOT >hello.hack
         <<__EntryPoint>>
-function main(): void {
-  echo "Hello World!\n";
-}
+        function main(): void {
+        echo "Hello World!\n";
+        }
         EOT
-        http://localhost:8080/hello.hack
+        curl http://localhost:8080/hello.hack
+

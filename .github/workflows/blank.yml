@@ -34,5 +34,5 @@ jobs:
         echo "Hello World!\n";
         }
         EOT
-        curl http://localhost:8080/hello.hack
+        curl http://localhost:8080/hellox.hack
 

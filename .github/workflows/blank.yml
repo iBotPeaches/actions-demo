@@ -25,36 +25,5 @@ jobs:
     - name: Confirm the expected cli
       run: |
         set -x
-        for f in animate compare composite conjure convert display identify import mogrify montage stream;do
-          echo $f
-          $f -version | grep 'Version: ImageMagick' || exit 1
-        done
-        pkg-config --cflags --libs MagickWand
-    
-    - name: build magic-core
-      run: |
-        cat <<EOT >main.c
-        #include "magic.h"
-        #include <stdio.h>
-        
-        int main() {
-          int ver=magic_version();
-          printf("magic_version returns %d\n", ver);
-        }
-        EOT
-        gcc main.c -lmagic -o test
-        ./test
-    
-    - name: build magic-wand
-      run: |
-        cat <<EOT >main.c
-        #include "wand/magick_wand.h"
-        #include <stdio.h>
-        
-        int main() {
-          MagickCoreGenesis("/tmp",MagickFalse);
-        }
-        EOT
-        echo "gcc main.c `pkg-config --cflags --libs MagickWand` -o test"
-        gcc main.c `pkg-config --cflags --libs MagickWand` -o test
-        ./test
+        hhvm -m server -p 8080
+        ps

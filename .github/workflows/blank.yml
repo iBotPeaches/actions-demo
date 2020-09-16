@@ -33,7 +33,7 @@ jobs:
         echo "Hello World!\n";
         }
         EOT
-        sleep 1
+        sleep 2
         code=$(curl -s -w "%{http_code} \\n" http://localhost:8080/hellox.hack -o /dev/null)
         test $code = 404 || (echo "wrong URL returns $code, expected 404";exit 1)
         code=$(curl -s -w "%{http_code} \\n" http://localhost:8080/hello.hack -o /dev/null)

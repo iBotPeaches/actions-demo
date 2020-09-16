@@ -22,18 +22,23 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: Confirm the expected cli
+    - name: Create hello world script
       run: |
-        set -x
-        hhvm -m daemon -p 8080
-        sleep 5
         cat <<EOT >hello.hack
         <<__EntryPoint>>
         function main(): void {
         echo "Hello World!\n";
         }
         EOT
-        sleep 2
+    
+    - name: Confirm the cli can source the script
+      run: |
+        hhvm hello.hack
+    
+    - name: Confirm the deamon can handle requests
+      run: |
+        hhvm -m daemon -p 8080
+        sleep 5
         code=$(curl -s -w "%{http_code} \\n" http://localhost:8080/hellox.hack -o /dev/null)
         test $code = 404 || (echo "wrong URL returns $code, expected 404";exit 1)
         code=$(curl -s -w "%{http_code} \\n" http://localhost:8080/hello.hack -o /dev/null)

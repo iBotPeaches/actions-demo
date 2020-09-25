@@ -6,55 +6,24 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches-ignore: [master]
+    # Remove the line above to run when pushing to master
   pull_request:
-    branches: [ master ]
+    branches: [master]
     
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    name: Lint Code Base Job
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    
-    - name: Confirm the expected cli
-      run: |
-        set -x
-        for f in animate compare composite conjure convert display identify import mogrify montage stream;do
-          echo $f
-          $f -version | grep 'Version: ImageMagick' || exit 1
-        done
-        pkg-config --cflags --libs MagickWand
-    
-    - name: build magic-core
-      run: |
-        cat <<EOT >main.c
-        #include "magic.h"
-        #include <stdio.h>
-        
-        int main() {
-          int ver=magic_version();
-          printf("magic_version returns %d\n", ver);
-        }
-        EOT
-        gcc main.c -lmagic -o test
-        ./test
-    
-    - name: build magic-wand
-      run: |
-        cat <<EOT >main.c
-        #include "wand/magick_wand.h"
-        #include <stdio.h>
-        
-        int main() {
-          MagickCoreGenesis("/tmp",MagickFalse);
-        }
-        EOT
-        echo "gcc main.c `pkg-config --cflags --libs MagickWand` -o test"
-        gcc main.c `pkg-config --cflags --libs MagickWand` -o test
-        ./test
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Lint Code Base
+        uses: github/super-linter@v3
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_JSON: true
+          VALIDATE_MD: true
+          DEFAULT_BRANCH: master

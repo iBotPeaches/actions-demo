@@ -22,10 +22,17 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: commit & push changes
+    - name: make changes
       run: |
         set -x
         touch newfile.txt
-        git add newfile.txt
-        git commit -m 'lint commit'
-        git push
+
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v5
+      with:
+        author_name: Your Name
+        author_email: mail@example.com
+        message: "Your commit message"
+        add: "*.txt"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

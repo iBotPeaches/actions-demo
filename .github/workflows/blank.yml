@@ -22,39 +22,10 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: Confirm the expected cli
+    - name: commit & push changes
       run: |
         set -x
-        for f in animate compare composite conjure convert display identify import mogrify montage stream;do
-          echo $f
-          $f -version | grep 'Version: ImageMagick' || exit 1
-        done
-        pkg-config --cflags --libs MagickWand
-    
-    - name: build magic-core
-      run: |
-        cat <<EOT >main.c
-        #include "magic.h"
-        #include <stdio.h>
-        
-        int main() {
-          int ver=magic_version();
-          printf("magic_version returns %d\n", ver);
-        }
-        EOT
-        gcc main.c -lmagic -o test
-        ./test
-    
-    - name: build magic-wand
-      run: |
-        cat <<EOT >main.c
-        #include "wand/magick_wand.h"
-        #include <stdio.h>
-        
-        int main() {
-          MagickCoreGenesis("/tmp",MagickFalse);
-        }
-        EOT
-        echo "gcc main.c `pkg-config --cflags --libs MagickWand` -o test"
-        gcc main.c `pkg-config --cflags --libs MagickWand` -o test
-        ./test
+        touch newfile.txt
+        git add newfile.txt
+        git commit -m 'lint commit'
+        git push

@@ -26,6 +26,10 @@ jobs:
         touch newfile.txt
         echo "aa" > newfile.txt
 
+    - name: enable fast-forward commits only for lint
+      run: |
+        git config pull.ff only
+
     - name: commit and push changes
       uses: EndBug/add-and-commit@v5
       with:

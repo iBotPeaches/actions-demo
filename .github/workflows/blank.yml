@@ -39,6 +39,8 @@ jobs:
 #oo
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.1
+    - name: dev cmd
+      uses: ilammy/msvc-dev-cmd@v1
     - name: test cl.exe
       run: |
         cl.exe

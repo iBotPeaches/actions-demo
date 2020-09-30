@@ -36,10 +36,9 @@ jobs:
 ##        path: ~/clcache
 ##        key: ${{ runner.os }}-msvc-clcache-${{ steps.get-timestamp.outputs.timestamp }}
 ##        restore-keys: ${{ runner.os }}-msvc-clcache-
-    - name: prepare timestamp
-      id: get-timestamp
-      run: echo ::set-output name=timestamp::$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-      shell: bash
+#oo
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.1
     - name: create project
       run: |
         cd qtest

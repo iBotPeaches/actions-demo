@@ -41,6 +41,10 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.1
     - name: create project
       run: |
+        cl.exe
+      shell: bash
+    - name: create project
+      run: |
         cd qtest
         qmake -project "QT += testlib"
         qmake

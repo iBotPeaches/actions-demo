@@ -46,6 +46,6 @@ jobs:
         INSTALLS += target
         EOT
         ls -la
-        cat *
+        cat  application.pro
       shell: bash
     

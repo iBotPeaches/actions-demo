@@ -26,6 +26,16 @@ jobs:
 #        qbs config defaultProfile qt
 #        qbs config --list
 #      shell: bash
+    - name: prepare timestamp
+      id: get-timestamp
+      run: echo ::set-output name=timestamp::$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+      shell: bash
+    - name: clcache cache files
+      uses: actions/cache@v2
+      with:
+        path: ~/clcache
+        key: ${{ runner.os }}-msvc-clcache-${{ steps.get-timestamp.outputs.timestamp }}
+        restore-keys: ${{ runner.os }}-msvc-clcache-
     - name: create project
       run: |
         cd qtest

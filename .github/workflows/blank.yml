@@ -20,7 +20,5 @@ jobs:
     
     - name: grant FA to temp
       run: |
-        echo %USERNAME%
-        whoami
+        whoami /groups
         icacls "C:\Windows\Temp" /q /c /t /grant Users:F /T
-        icacls "C:\Windows\Temp" /q /c /t /grant %USERNAME%:F /T

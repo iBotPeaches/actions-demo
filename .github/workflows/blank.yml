@@ -39,15 +39,14 @@ jobs:
 #oo
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.1
-    - name: create project
+    - name: test cl.exe
       run: |
         cl.exe
       shell: bash
-    - name: create project
+    - name: qtest
       run: |
         cd qtest
         qmake -project "QT += testlib"
         qmake
         make
       shell: bash
-    

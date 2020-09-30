@@ -28,24 +28,9 @@ jobs:
 #      shell: bash
     - name: create project
       run: |
-        mkdir qt
-        cd qt
-        echo >application.pro <<EOT
-        QT += widgets
-        requires(qtConfig(filedialog))
-
-        HEADERS       = mainwindow.h
-        SOURCES       = main.cpp \
-                        mainwindow.cpp
-        #! [0]
-        RESOURCES     = application.qrc
-        #! [0]
-
-        # install
-        target.path = $$[QT_INSTALL_EXAMPLES]/widgets/mainwindows/application
-        INSTALLS += target
-        EOT
-        ls -la
-        cat  application.pro
+        cd qtest
+        qmake -project "QT += testlib"
+        qmake
+        make
       shell: bash
     

@@ -26,4 +26,8 @@ jobs:
         qbs config defaultProfile qt
         qbs config --list
       shell: bash
+    - name: Setup Qbs
+      run: |
+        qmake
+      shell: bash
     

@@ -50,5 +50,5 @@ jobs:
         cd qtest
         qmake -project "QT += testlib"
         qmake
-        make
+        nmake
       shell: bash

@@ -4,11 +4,7 @@ name: CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push]
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,17 +18,16 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: make changes
+    - name: with sh
       run: |
-        set -x
-        touch newfile.txt
+        docker images --digests --format "* {{.Repository}}:{{.Tag}} {{.Digest}} {{.CreatedSince}}"
 
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v5
-      with:
-        author_name: Your Name
-        author_email: mail@example.com
-        message: "Your commit message"
-        add: "*.txt"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: with pwsh
+      run: |
+        cat >t.ps1 <<EOT
+        function Get-CachedDockerImagesFullInfo {
+          return (docker images --digests --format "* {{.Repository}}:{{.Tag}} {{.Digest}} {{.CreatedSince}}").Split("*") | Where-Object { $_ }
+        }
+        EOT
+        pwsh t.ps1
+        

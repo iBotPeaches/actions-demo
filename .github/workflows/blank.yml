@@ -25,10 +25,17 @@ jobs:
     - name: with pwsh
       run: |
         cat >t.ps1 <<EOT
+        Write-Host 1111111
+        (docker images --digests --format "* {{.Repository}}:{{.Tag}} {{.Digest}} {{.CreatedSince}}")
+        Write-Host 2222222
+        (docker images --digests --format "* {{.Repository}}:{{.Tag}} {{.Digest}} {{.CreatedSince}}").Split("*")
+        Write-Host 333333333
+        (docker images --digests --format "* {{.Repository}}:{{.Tag}} {{.Digest}} {{.CreatedSince}}").Split("*") | Where-Object { $_ }
+        Write-Host 444444444
         function Get-CachedDockerImagesFullInfo {
           return (docker images --digests --format "* {{.Repository}}:{{.Tag}} {{.Digest}} {{.CreatedSince}}").Split("*") | Where-Object { $_ }
         }
-        Get-CachedDockerImagesFullInfo 
+        @(Get-CachedDockerImagesFullInfo)
         EOT
         pwsh t.ps1
         

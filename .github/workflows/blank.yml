@@ -34,6 +34,7 @@ jobs:
         Write-Host 444444444
         function Get-CachedDockerImagesFullInfo {
           return (docker images --digests --format "* {{.Repository}}:{{.Tag}} {{.Digest}} {{.CreatedSince}}").Split("*") 
+        }
         @(Get-CachedDockerImagesFullInfo)
         EOT
         pwsh t.ps1

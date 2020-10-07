@@ -19,7 +19,9 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: find uuid.hpp
+      shell: bash
       run: |
         set
         find $BOOST_ROOT_1_72_0 -name 'uuid.hpp'
+      
         

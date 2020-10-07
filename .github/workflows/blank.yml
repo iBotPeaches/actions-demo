@@ -28,6 +28,7 @@ jobs:
         function Get-CachedDockerImagesFullInfo {
           return (docker images --digests --format "* {{.Repository}}:{{.Tag}} {{.Digest}} {{.CreatedSince}}").Split("*") | Where-Object { $_ }
         }
+        Get-CachedDockerImagesFullInfo 
         EOT
         pwsh t.ps1
         

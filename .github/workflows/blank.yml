@@ -11,24 +11,15 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: make changes
+    - name: find uuid.hpp
       run: |
-        set -x
-        touch newfile.txt
-
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v5
-      with:
-        author_name: Your Name
-        author_email: mail@example.com
-        message: "Your commit message"
-        add: "*.txt"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        set
+        find $BOOST_ROOT_1_72_0 -name 'uuid.hpp'
+        

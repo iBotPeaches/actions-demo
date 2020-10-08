@@ -28,6 +28,8 @@ jobs:
       run: |
         echo on
         echo %HOME%
+        echo %USERPROFILE%
+        echo  %HOMEDRIVE%%HOMEPATH%
     
     - name: bash
       shell: bash
@@ -38,9 +40,13 @@ jobs:
       shell: pwsh
       run: |
         echo $env:HOME
+        echo $env:USERPROFILE
+        echo "${env:HOMEDRIVE}${env:HOMEPATH}"
     
     - name: pwsh write host
       shell: pwsh
       run: |
         Write-Host $env:HOME
+        Write-Host $env:USERPROFILE
+        Write-Host "${env:HOMEDRIVE}${env:HOMEPATH}"
 

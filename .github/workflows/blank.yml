@@ -20,15 +20,17 @@ jobs:
     
     - name: default
       run: |
+        echo on
         echo %HOME%
     
     - name: cmd
       shell: cmd
       run: |
+        echo on
         echo %HOME%
     
     - name: bash
-      shell: cmd
+      shell: bash
       run: |
         echo $HOME
     

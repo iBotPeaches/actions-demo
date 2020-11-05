@@ -1,34 +1,30 @@
-# This is a basic workflow to help you get started with Actions
+name: Swift
 
-name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on: [push]
-    
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+  test:
+    name: Test
+    runs-on: macos-latest
+    timeout-minutes: 20
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    
-    - name: make changes
-      run: |
-        set -x
-        touch newfile.txt
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
 
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v5
-      with:
-        author_name: Your Name
-        author_email: mail@example.com
-        message: "Your commit message"
-        add: "*.txt"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: 11.7
+
+      - name: Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.6
+
+      - name: Bundle Install
+        env:
+          BUNDLE_FROZEN: "true"
+        run: bundle install

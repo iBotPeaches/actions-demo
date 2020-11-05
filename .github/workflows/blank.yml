@@ -28,5 +28,5 @@ jobs:
         env:
           BUNDLE_FROZEN: "true"
         run: |
-          echo >Gemfile
+          bundle version
           bundle install

@@ -31,4 +31,6 @@ jobs:
           which ruby
           which gem
           gem env
+          find /Users/runner/hostedtoolcache/ -name bundle || true
+          find /Users/runner/hostedtoolcache/ -name bundler
           bundle install

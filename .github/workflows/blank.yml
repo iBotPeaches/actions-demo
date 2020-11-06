@@ -30,6 +30,6 @@ jobs:
         run: |
           set -x
           gem env
-          rm Gemfile.lock
+          Gemfile.lock
           bundle version
-          #bundle install
+          bundle install

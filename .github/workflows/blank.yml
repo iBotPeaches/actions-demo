@@ -29,6 +29,7 @@ jobs:
           BUNDLE_FROZEN: "true"
         run: |
           set -x
-          #gem env
+          gem env
+          rm Gemfile.lock
           bundle version
           #bundle install

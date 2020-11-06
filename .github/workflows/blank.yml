@@ -21,14 +21,8 @@ jobs:
     - name: make changes
       run: |
         set -x
-        touch newfile.txt
-
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v5
-      with:
-        author_name: Your Name
-        author_email: mail@example.com
-        message: "Your commit message"
-        add: "*.txt"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        sudo dpkg --print-architecture
+        sudo dpkg --print-foreign-architectures
+        sudo dpkg --add-architecture armhf
+        sudo apt update -y
+        sudo apt install -y libusb-1.0:armhf libusb-dev:armhf

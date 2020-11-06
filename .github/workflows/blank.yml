@@ -28,6 +28,7 @@ jobs:
         env:
           BUNDLE_FROZEN: "true"
         run: |
-          gem env
+          set -x
+          #gem env
           bundle version
-          bundle install
+          #bundle install

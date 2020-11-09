@@ -29,7 +29,7 @@ jobs:
         sudo dpkg --print-foreign-architectures
         sudo dpkg --add-architecture armhf
         #cat /etc/apt/sources.list
-        cat /etc/apt/apt.conf.d/arch
-        apt-config dump
-        sudo apt update -y
-        sudo apt install -y libusb-1.0:armhf libusb-dev:armhf
+        #cat /etc/apt/apt.conf.d/arch
+        #apt-config dump
+        #sudo apt update -y
+        #sudo apt install -y libusb-1.0:armhf libusb-dev:armhf

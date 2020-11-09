@@ -21,7 +21,8 @@ jobs:
     - name: make changes
       run: |
         set -x
-        sudo echo 'APT::Architectures "amd64,armhf,armel";' >> /etc/apt/apt.conf.d/arch
+        echo 'APT::Architectures "amd64,armhf,armel";' > /tmp/arch
+        sudo cat /tmp/arch >> /etc/apt/apt.conf.d/arch
         #cat /etc/apt/sources.list
         sudo dpkg --print-architecture
         sudo dpkg --print-foreign-architectures

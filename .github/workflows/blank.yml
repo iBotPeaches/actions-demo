@@ -24,12 +24,15 @@ jobs:
         #echo 'APT::Architecture "amd64";' > /tmp/arch
         #echo 'APT::Architectures "amd64,armhf,armel";' >> /tmp/arch
         #sudo sh -c 'cat /tmp/arch >> /etc/apt/apt.conf.d/arch'
-        #cat /etc/apt/sources.list
+        cat /etc/apt/sources.list
+        echo dpkg --print-architecture
         sudo dpkg --print-architecture
+        echo dpkg --print-foreign-architectures
         sudo dpkg --print-foreign-architectures
+        echo dpkg --add-architecture armhf
         sudo dpkg --add-architecture armhf
-        sudo cp sources.list /etc/apt/sources.list.d/arm.list
+        #sudo cp sources.list /etc/apt/sources.list.d/arm.list
         #cat /etc/apt/apt.conf.d/arch
         #apt-config dump
-        sudo apt update -y
-        sudo apt install -y libusb-1.0:armhf libusb-dev:armhf
+        #sudo apt update -y
+        #sudo apt install -y libusb-1.0:armhf libusb-dev:armhf

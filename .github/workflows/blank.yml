@@ -20,10 +20,10 @@ jobs:
     
     - name: make changes
       run: |
-        pwd
         set -x
-        sudo dpkg --print-architecture
-        sudo dpkg --print-foreign-architectures
-        sudo dpkg --add-architecture armhf
-        sudo apt update -y
-        sudo apt install -y libusb-1.0:armhf libusb-dev:armhf
+        ls -la /etc/apt/
+        #sudo dpkg --print-architecture
+        #sudo dpkg --print-foreign-architectures
+        #sudo dpkg --add-architecture armhf
+        #sudo apt update -y
+        #sudo apt install -y libusb-1.0:armhf libusb-dev:armhf

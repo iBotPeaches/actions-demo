@@ -36,4 +36,4 @@ jobs:
         #cat /etc/apt/apt.conf.d/arch
         #apt-config dump
         sudo apt update -y
-        sudo apt install -y libusb-1.0:armhf libusb-dev:armhf
+        sudo apt install -y libusb-1.0:armhf libusb-dev:armhf libc6:armhf libudev1:armhf libc6-dev:armhf

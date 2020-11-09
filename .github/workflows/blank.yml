@@ -21,11 +21,10 @@ jobs:
     - name: make changes
       run: |
         set -x
-        ls -la /etc/apt
         cat /etc/apt/sources.list
-        ls -la /etc/apt/sources.list.d
-        #sudo dpkg --print-architecture
-        #sudo dpkg --print-foreign-architectures
-        #sudo dpkg --add-architecture armhf
+        sudo dpkg --print-architecture
+        sudo dpkg --print-foreign-architectures
+        sudo dpkg --add-architecture armhf
+        cat /etc/apt/sources.list
         #sudo apt update -y
         #sudo apt install -y libusb-1.0:armhf libusb-dev:armhf

@@ -20,6 +20,7 @@ jobs:
     
     - name: make changes
       run: |
+        pwd
         set -x
         sudo dpkg --print-architecture
         sudo dpkg --print-foreign-architectures

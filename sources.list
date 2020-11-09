@@ -56,4 +56,7 @@ deb http://security.ubuntu.com/ubuntu bionic-security universe
 deb http://security.ubuntu.com/ubuntu bionic-security multiverse
 # deb-src http://security.ubuntu.com/ubuntu bionic-security multiverse
 
-deb http://ports.ubuntu.com/ubuntu-ports bionic  main
+deb [arch=armhf,arm64] http://ports.ubuntu.com/ubuntu-ports bionic main
+deb [arch=armhf,arm64] http://ports.ubuntu.com/ubuntu-ports bionic universe
+deb [arch=armhf,arm64] http://ports.ubuntu.com/ubuntu-ports bionic multiuniverse
+deb [arch=armhf,arm64] http://ports.ubuntu.com/ubuntu-ports bionic restricted

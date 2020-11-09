@@ -1,0 +1,10 @@
+deb [arch=armel,armhf,arm64] http://azure.archive.ubuntu.com/ubuntu/ bionic main restricted
+deb [arch=armel,armhf,arm64] http://azure.archive.ubuntu.com/ubuntu/ bionic-updates main restricted
+deb [arch=armel,armhf,arm64] http://azure.archive.ubuntu.com/ubuntu/ bionic universe
+deb [arch=armel,armhf,arm64] http://azure.archive.ubuntu.com/ubuntu/ bionic-updates universe
+deb [arch=armel,armhf,arm64] http://azure.archive.ubuntu.com/ubuntu/ bionic multiverse
+deb [arch=armel,armhf,arm64] http://azure.archive.ubuntu.com/ubuntu/ bionic-updates multiverse
+deb [arch=armel,armhf,arm64] http://azure.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb [arch=armel,armhf,arm64] http://security.ubuntu.com/ubuntu bionic-security main restricted
+deb [arch=armel,armhf,arm64] http://security.ubuntu.com/ubuntu bionic-security universe
+deb [arch=armel,armhf,arm64] http://security.ubuntu.com/ubuntu bionic-security multiverse

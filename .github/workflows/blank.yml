@@ -31,5 +31,5 @@ jobs:
         sudo cp sources.list /etc/apt/sources.list.d/arm.list
         #cat /etc/apt/apt.conf.d/arch
         #apt-config dump
-        #sudo apt update -y
-        #sudo apt install -y libusb-1.0:armhf libusb-dev:armhf
+        sudo apt update -y
+        sudo apt install -y libusb-1.0:armhf libusb-dev:armhf

@@ -27,7 +27,7 @@ jobs:
         sudo dpkg --add-architecture armhf
         #cat /etc/apt/sources.list
         apt-config dump
-        sudo /bin/bash -c 'echo \'APT::Architectures "amd64,armhf,armel";\' >> /etc/apt/apt.conf.d/arc'
+        sudo /bin/bash -c 'echo \'APT::Architectures "amd64,armhf,armel";\' >> /etc/apt/apt.conf.d/arch'
         cat /etc/apt/apt.conf.d/arch
         sudo apt update -y
         sudo apt install -y libusb-1.0:armhf libusb-dev:armhf

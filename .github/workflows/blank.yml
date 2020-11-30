@@ -18,14 +18,15 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: ndk
+    - name: ndk copy
       run: |
           copy ndk.cmd "C:\Program Files (x86)\Android\android-sdk\ndk-bundle\ndk.cmd"
+          copy ndk-test.cmd "C:\Program Files (x86)\Android\android-sdk\ndk-bundle\ndk-test.cmd"
           
     - name: ndk
       run: |
         Get-Content "C:\Program Files (x86)\Android\android-sdk\ndk-bundle\ndk.cmd"
-        & "C:\Program Files (x86)\Android\android-sdk\ndk-bundle\ndk.cmd"
+        & "C:\Program Files (x86)\Android\android-sdk\ndk-bundle\ndk.cmd" aaa bbb
       shell: powershell
     
     - name: ndk-build

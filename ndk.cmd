@@ -1,2 +1,2 @@
 @echo off
-"%~dp0\build\ndk-test.cmd %*
+"%~dp0\build\ndk-test.cmd" %*

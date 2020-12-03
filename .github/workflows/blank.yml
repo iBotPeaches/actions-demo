@@ -1,34 +1,44 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
-on: [push]
-    
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+name: brew test-bot
+on:
+  push:
+    branches: main
+  pull_request:
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  test-bot:
+    strategy:
+      matrix:
+        os: [macos-11.0, macOS-latest]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    
-    - name: make changes
-      run: |
-        set -x
-        touch newfile.txt
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v5
-      with:
-        author_name: Your Name
-        author_email: mail@example.com
-        message: "Your commit message"
-        add: "*.txt"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Cache Homebrew Bundler RubyGems
+        id: cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+          key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ runner.os }}-rubygems-
+
+      - name: Install Homebrew Bundler RubyGems
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: brew install-bundler-gems
+
+      - run: brew test-bot --only-cleanup-before
+
+      - run: brew test-bot --only-setup
+
+      - run: brew test-bot --only-tap-syntax
+
+      - run: brew test-bot --only-formulae
+        if: github.event_name == 'pull_request'
+
+      - name: Upload bottles as artifact
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles
+          path: '*.bottle.*'

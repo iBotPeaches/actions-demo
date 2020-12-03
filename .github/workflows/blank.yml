@@ -22,3 +22,10 @@ jobs:
       run: |
         whoami /groups
         icacls "C:\Windows\Temp" /q /c /t /grant Users:F /T
+
+    - name: Test clang
+      shell: cmd
+      run: |
+        call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\vc\Auxiliary\build\vcvarsall.bat" x64
+        clang-cl
+

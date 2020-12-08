@@ -21,14 +21,4 @@ jobs:
     - name: make changes
       run: |
         set -x
-        touch newfile.txt
-
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v5
-      with:
-        author_name: Your Name
-        author_email: mail@example.com
-        message: "Your commit message"
-        add: "*.txt"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        cat /etc/apt/sources.list

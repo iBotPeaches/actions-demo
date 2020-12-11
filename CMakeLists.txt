@@ -5,12 +5,6 @@ project(Tutorial LANGUAGES CXX )
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-option( strict_compile
-    "Treat all warnings as errors." ON
-    )
-
-set( common_flags "-Wall" "-Wextra" "-Wpedantic" )
-set( strict_flags "-Werror" "-Wno-unknown-warning-option" )
 set( release_flags "-O3" )
 set( debug_flags "-O0" "-g" )
 

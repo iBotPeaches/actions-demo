@@ -28,6 +28,10 @@ jobs:
       run: cmake -D CMAKE_CXX_COMPILER=`which ${{matrix.cxx}}` -D CMAKE_BUILD_TYPE=${{matrix.build_type}} ..  
       working-directory: ./build
 
+    - name: TutorialConfig.h
+      run: cat TutorialConfig.h
+      working-directory: ./build
+
     - name: make
       run: make -j2 VERBOSE=1
       working-directory: ./build

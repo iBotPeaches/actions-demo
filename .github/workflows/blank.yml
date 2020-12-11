@@ -19,11 +19,6 @@ jobs:
         which ${{matrix.cxx}} 
         ${{matrix.cxx}} --version
 
-    - name: make changes
-      run: |
-        set -x
-        cat /etc/apt/sources.list
-
     - uses: actions/checkout@v2
 
     - name: mkdir build

@@ -52,6 +52,6 @@ jobs:
     - name:  use gfortran 77 with lib link
       run: |
         set -x
-        gfortran hello.f -o hello77lin
+        gfortran hello.f -o hello77link
         ./hello77link
 

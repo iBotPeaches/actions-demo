@@ -18,14 +18,16 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name:  Provide gfortran
+    - name: gfortran bin link
       run: |
         set -x
         sudo ln -s /usr/local/bin/gfortran-9 /usr/local/bin/gfortran
         gfortran --version
-        ls -l /usr/local/Cellar/gcc@9
+        
 
-    - name:  gfortran version
+    - name:  gfortran bin lib
       run: |
         set -x
-        gfortran -version
+        ls -l /usr/local/Cellar/gcc@9
+        sudo ln -s /usr/local/Cellar/gcc@9/9.3.0_1/lib/gcc/9 /usr/local/gfortran/lib
+        gfortran --version

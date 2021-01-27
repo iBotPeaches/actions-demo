@@ -17,8 +17,13 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+  
+    - name: Set up Maven
+      uses: stCarolas/setup-maven@v4
+      with:
+        maven-version: 3.3.9
     
-    - name: make changes
+    - name: mvn --version
       run: |
         set -x
-        cat /etc/apt/sources.list
+        mvn --version

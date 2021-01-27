@@ -28,12 +28,11 @@ jobs:
     - name:  gfortran bin lib
       run: |
         set -x
-        ls -l /usr/local/Cellar/gcc@9
-        ls -l /usr/local/Cellar/gcc@9/9.3.0_1/lib/gcc
+        sudo mkdir /usr/local/gfortran
         sudo ln -s /usr/local/Cellar/gcc@9/9.3.0_1/lib/gcc/9 /usr/local/gfortran/lib
         gfortran --version
         
-    - name:  use gfortran
+    - name:  use gfortran 90
       run: |
         set -x
         gfortran hello.f90 -o hello

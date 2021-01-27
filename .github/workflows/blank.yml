@@ -23,7 +23,18 @@ jobs:
         set -x
         sudo ln -s /usr/local/bin/gfortran-9 /usr/local/bin/gfortran
         gfortran --version
+
+    - name:  use gfortran 90 without lib link
+      run: |
+        set -x
+        gfortran hello.f90 -o hello90
+        ./hello90
         
+    - name:  use gfortran 77 without lib link
+      run: |
+        set -x
+        gfortran hello.f -o hello77
+        ./hello77
 
     - name:  gfortran bin lib
       run: |
@@ -32,8 +43,15 @@ jobs:
         sudo ln -s /usr/local/Cellar/gcc@9/9.3.0_1/lib/gcc/9 /usr/local/gfortran/lib
         gfortran --version
         
-    - name:  use gfortran 90
+    - name:  use gfortran 90 with lib link
       run: |
         set -x
-        gfortran hello.f90 -o hello
-        ./hello
+        gfortran hello.f90 -o hello90link
+        ./hello90link
+
+    - name:  use gfortran 77 with lib link
+      run: |
+        set -x
+        gfortran hello.f -o hello77lin
+        ./hello77link
+

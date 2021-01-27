@@ -23,3 +23,9 @@ jobs:
         set -x
         sudo ln -s /usr/local/bin/gfortran-9 /usr/local/bin/gfortran
         gfortran --version
+
+    - name:  use gfortran
+      run: |
+        set -x
+        gfortran hello.f90 -o hello
+        ./hello

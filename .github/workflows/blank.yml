@@ -29,5 +29,12 @@ jobs:
       run: |
         set -x
         ls -l /usr/local/Cellar/gcc@9
+        ls -l /usr/local/Cellar/gcc@9/9.3.0_1/lib/gcc
         sudo ln -s /usr/local/Cellar/gcc@9/9.3.0_1/lib/gcc/9 /usr/local/gfortran/lib
         gfortran --version
+        
+    - name:  use gfortran
+      run: |
+        set -x
+        gfortran hello.f90 -o hello
+        ./hello

@@ -23,7 +23,13 @@ jobs:
       with:
         maven-version: 3.3.9
     
-    - name: mvn --version
+    - name: mvn --version with M2
       run: |
         set -x
+        mvn --version
+        
+    - name: mvn --version without M2
+      run: |
+        set -x
+        unset M2_HOME
         mvn --version

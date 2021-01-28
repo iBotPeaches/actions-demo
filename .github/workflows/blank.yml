@@ -37,4 +37,3 @@ jobs:
         cat `which mvn`
         unset M2_HOME
         mvn --version
-        

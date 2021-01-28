@@ -26,14 +26,15 @@ jobs:
     - name: mvn --version with M2
       run: |
         set -x
-        ls - `which mvn`
+        ls -l `which mvn`
         cat `which mvn`
         mvn --version
         
     - name: mvn --version without M2
       run: |
         set -x
-        ls - `which mvn`
+        ls -l `which mvn`
         cat `which mvn`
         unset M2_HOME
         mvn --version
+        

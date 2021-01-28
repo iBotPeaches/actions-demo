@@ -19,6 +19,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: gnu gcc
+      shell: bash
       run: |
         set -x
         /c/msys64/mingw32/bin/gcc -v --version

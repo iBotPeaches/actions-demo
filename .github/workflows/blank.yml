@@ -21,4 +21,4 @@ jobs:
     - name: make changes
       run: |
         set -x
-        cat /etc/apt/sources.list
+        set

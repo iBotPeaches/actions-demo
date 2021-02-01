@@ -8,17 +8,32 @@ on: [push]
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+  check:
+    name: Code quality check
+    runs-on: ubuntu-latest 
+    outputs:
+      # 将 semantic 输出的值作为下一环节的输入
+      semantic: ${{ toJSON(steps.semantic.outputs) }} # ! MUST BE STRING
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Semantic Release with dryRun
+        id: semantic
+        run: |
+            echo true
 
+# This workflow contains a single job called "build"
+  build:
+    needs: check
+    name: Build
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest    
+      
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
-    - name: make changes
-      run: |
-        set -x
-        cat /etc/apt/sources.list
+      
+    - name: Tricky version
+        run: |
+          echo ${{ fromJSON(needs.check.outputs.semantic).new_release_version }}    
+ 

@@ -19,7 +19,7 @@ jobs:
       - name: Semantic Release with dryRun
         id: semantic
         run: |
-            echo true
+            echo '{new_release_version: 2}'
 
 # This workflow contains a single job called "build"
   build:

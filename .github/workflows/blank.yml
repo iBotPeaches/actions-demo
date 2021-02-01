@@ -37,7 +37,7 @@ jobs:
     - name: gnu gcc compile cmd
       shell: cmd
       run: |
-        /c/msys64/mingw32/bin/gcc -v hello.c -o hello-cmd
+        c:\msys64\mingw32\bin\gcc -v hello.c -o hello-cmd
         dir
         hello-cmd.exe
     

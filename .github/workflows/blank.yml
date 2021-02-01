@@ -23,18 +23,25 @@ jobs:
       run: |
         echo "C:\msys64\mingw32\bin" >> $GITHUB_PATH
     
-    #- name: gnu gcc version cmd.exe
-    #  shell: cmd
-    #  run: |
-    #    c:\msys64\mingw32\bin\gcc -v --version
+    - name: gnu gcc version cmd.exe
+      shell: cmd
+      run: |
+        c:\msys64\mingw32\bin\gcc -v --version
     
-    #- name: gnu gcc version bash
-    #  shell: bash
-    #  run: |
-    #    set -x
-    #    /c/msys64/mingw32/bin/gcc -v --version
+    - name: gnu gcc version bash
+      shell: bash
+      run: |
+        set -x
+        /c/msys64/mingw32/bin/gcc -v --version
     
-    - name: gnu gcc compile
+    - name: gnu gcc compile cmd
+      shell: cmd
+      run: |
+        /c/msys64/mingw32/bin/gcc -v hello.c -o hello-cmd
+        dir
+        hello-cmd.exe
+    
+    - name: gnu gcc compile bash
       shell: bash
       run: |
         set -x
@@ -46,4 +53,4 @@ jobs:
       shell: bash
       run: |
         set -x
-        //c/msys64/mingw32/bin/i686-w64-mingw32-gcc -v --version
+        /c/msys64/mingw32/bin/i686-w64-mingw32-gcc -v --version

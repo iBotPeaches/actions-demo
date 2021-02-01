@@ -15,7 +15,7 @@ jobs:
     name: Code quality check
     runs-on: ubuntu-latest 
     outputs:
-        semantie: ${{ steps.step1.outputs.test }}
+        semantie: ${{ steps.semantic.outputs.test }}
         semantic: ${{ steps.semantic.outputs }} 
     steps: 
       - uses: actions/checkout@v2

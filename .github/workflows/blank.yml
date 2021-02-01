@@ -15,7 +15,8 @@ jobs:
     name: Code quality check
     runs-on: ubuntu-latest 
     outputs:
-      semantic: ${{ steps.semantic.outputs }} 
+        output1: ${{ steps.step1.outputs.test }}
+        semantic: ${{ steps.semantic.outputs }} 
     steps: 
       - uses: actions/checkout@v2
       - name: Semantic Release with dryRun

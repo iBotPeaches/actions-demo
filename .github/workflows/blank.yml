@@ -21,8 +21,7 @@ jobs:
     - name: gnu gcc version cmd.exe
       shell: cmd
       run: |
-        set -x
-        /c/msys64/mingw32/bin/gcc -v --version
+        c:\msys64\mingw32\bin\gcc -v --version
     
     - name: gnu gcc version bash
       shell: bash

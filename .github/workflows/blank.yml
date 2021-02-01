@@ -35,5 +35,7 @@ jobs:
       
     - name: Tricky version
       run: |
-        echo ${{ fromJSON(needs.check.outputs.semantic).new_release_version }}    
+        echo "AAA"
+        echo ${{ fromJSON(needs.check.outputs.semantic).new_release_version }}  
+        echo "BBB"  
  

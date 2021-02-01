@@ -15,7 +15,7 @@ jobs:
     name: Code quality check
     runs-on: ubuntu-latest 
     outputs:
-        semantic: ${{ steps.semantic.outputs.result }} 
+        semantic: ${{ toJSON(steps.semantic.outputs) }} 
     steps: 
       - uses: actions/checkout@v2
       - name: Semantic Release with dryRun
@@ -40,6 +40,6 @@ jobs:
         echo "AAA"
         echo ${{ needs.check.outputs.semantic }}  
         echo "==="
-        echo ${{ fromJSON(needs.check.outputs.semantic) }}  
+        echo ${{ fromJSON(needs.check.outputs.semantic).result }}  
         echo "BBB"  
  

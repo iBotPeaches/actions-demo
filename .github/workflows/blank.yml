@@ -15,13 +15,13 @@ jobs:
     name: Code quality check
     runs-on: ubuntu-latest 
     outputs:
-        semantic: ${{ toJSON(steps.semantic.outputs) }} 
+        semantic: ${{ steps.semantic.outputs.result }} 
     steps: 
       - uses: actions/checkout@v2
       - name: Semantic Release with dryRun
         id: semantic
         run: |
-            echo '::set-output name=result::$(echo true)'
+            echo '::set-output name=result::true'
 
 # This workflow contains a single job called "build"
   build:

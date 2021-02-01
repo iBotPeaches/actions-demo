@@ -40,6 +40,5 @@ jobs:
         echo "AAA"
         echo ${{ needs.check.outputs.semantic }}  
         echo "==="
-        # echo ${{ fromJSON(needs.check.outputs.semantic).result }}  
         echo "BBB"  
  

@@ -13,7 +13,8 @@ jobs:
     runs-on: ubuntu-latest 
     outputs:
       # 将 semantic 输出的值作为下一环节的输入
-      semantic: ${{ toJSON(steps.semantic.outputs) }} # ! MUST BE STRING
+      #semantic: ${{ toJSON(steps.semantic.outputs) }} # ! MUST BE STRING
+      semantic: ${{ steps.semantic.outputs }} # ! MUST BE STRING
     steps: 
       - uses: actions/checkout@v2
       - name: Semantic Release with dryRun

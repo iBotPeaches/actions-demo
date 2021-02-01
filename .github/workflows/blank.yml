@@ -18,8 +18,22 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: gnu gcc
+    - name: gnu gcc version
       shell: bash
       run: |
         set -x
         /c/msys64/mingw32/bin/gcc -v --version
+    
+    - name: gnu gcc compile
+      shell: bash
+      run: |
+        set -x
+        /c/msys64/mingw32/bin/gcc -v hello.c -o hello
+        ls -la
+        ./hello.exe
+    
+    - name: mingw gcc versions
+      shell: bash
+      run: |
+        set -x
+        //c/msys64/mingw32/bin/i686-w64-mingw32-gcc -v --version

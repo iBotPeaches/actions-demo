@@ -20,6 +20,7 @@ jobs:
     
     - name: make changes
       run: |
+        ls -la $GOROOT
         echo $EDGEWEBDRIVER
         echo $GOROOT_1_13_X64
         echo '==='

@@ -21,6 +21,8 @@ jobs:
     - name: make changes
       run: |
         ls -la $GOROOT
-        set |grep GOROOT|while read f;do echo $f; eval "echo \$$f";done
+        ls -la $GOROOT_1_13_X64
+        ls -la $GOROOT_1_14_X64
+        ls -la $GOROOT_1_15_X64
         echo '==='
         set

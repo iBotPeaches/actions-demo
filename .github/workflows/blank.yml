@@ -21,6 +21,6 @@ jobs:
     - name: make changes
       run: |
         echo $EDGEWEBDRIVER
-        echo $EDGEWEBDRIVER
+        echo $GOROOT_1_13_X64
         echo '==='
         set

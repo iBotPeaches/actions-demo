@@ -20,5 +20,5 @@ jobs:
     
     - name: venv
       run: |
-        python3 -m venv py3-env
+        python3 -m venv py3-env  --symlinks
       

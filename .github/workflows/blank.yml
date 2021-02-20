@@ -20,5 +20,5 @@ jobs:
     
     - name: lerna version
       run: |
-        npm install -g lerna
+        sudo npm install -g lerna
         lerna -v

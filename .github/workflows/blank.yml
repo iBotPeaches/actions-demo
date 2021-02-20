@@ -20,5 +20,5 @@ jobs:
     
     - name: lerna version
       run: |
-        npm intall -g lerna
+        npm install -g lerna
         lerna -v

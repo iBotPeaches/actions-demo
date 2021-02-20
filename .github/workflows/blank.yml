@@ -21,4 +21,4 @@ jobs:
     - name: lerna version
       run: |
         sudo npm install -g lerna
-        lerna -v
+        echo "version$(lerna -v)"

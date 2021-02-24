@@ -10,15 +10,32 @@ on: [push]
 jobs:
   # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    runs-on: windows-2019
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
-    - name: make changes
+    - name: Show gfortran Version
+      shell: powershell
       run: |
-        set -x
-        cat /etc/apt/sources.list
+        $env:Path = "C:\\msys64\\mingw64\\bin;" + $env:Path
+        gfortran --version
+    - name: Where Before and After
+      shell: powershell
+      run: |
+        Write-Host "  BEFORE cmake:"
+        where.exe cmake
+        Write-Host "  BEFORE gfortran:"
+        where.exe gfortran
+        $env:Path = "C:\\msys64\\mingw64\\bin;" + $env:Path
+        Write-Host "  AFTER cmake:"
+        where.exe cmake
+        Write-Host "  AFTER gfortran:"
+        where.exe gfortran
+    - name: Image Version Info
+      shell: powershell
+      run: |
+        Write-Host "IMAGEOS=$env:IMAGEOS||IMAGEVERSION=$env:IMAGEVERSION"
+    - name: cmake Version
+      shell: powershell
+      run: |
+        $env:Path = "C:\\msys64\\mingw64\\bin;" + $env:Path
+        cmake --version

@@ -11,7 +11,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: macos-10.15
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -20,5 +20,9 @@ jobs:
     
     - name: make changes
       run: |
-        set -x
-        cat /etc/apt/sources.list
+        dd if=/dev/random of=/tmp/bin1 bs=1048576 count=100
+        dd if=/dev/random of=/tmp/bin2 bs=1048576 count=100
+        for i in 1...100; do
+           echo "Attempt $i"
+           tar  -czvf /tmp/arc.tgz /tmp/bin1 /tmp/bin2
+        done

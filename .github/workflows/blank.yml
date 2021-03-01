@@ -20,11 +20,11 @@ jobs:
     
     - name: make changes
       run: |
-        dd if=/dev/random of=/tmp/bin1 bs=1048576 count=100
-        dd if=/dev/random of=/tmp/bin2 bs=1048576 count=100
-        shasum /tmp/bin1 /tmp/bin2 > /tmp/check
         for i in {1..100}; do
            echo "Attempt $i"
+           dd if=/dev/random of=/tmp/bin1 bs=1048576 count=100
+           dd if=/dev/random of=/tmp/bin2 bs=1048576 count=100
+           shasum /tmp/bin1 /tmp/bin2 > /tmp/check
            tar  -czvf /tmp/arc.tgz /tmp/bin1 /tmp/bin2
            mkdir /tmp/x
            pushd /tmp/x

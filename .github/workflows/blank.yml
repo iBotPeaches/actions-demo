@@ -21,4 +21,4 @@ jobs:
     - name: make changes
       run: |
         set -x
-        sudo grep -r 8084 /etc
+        sudo cat /etc/default/mono-xsp4

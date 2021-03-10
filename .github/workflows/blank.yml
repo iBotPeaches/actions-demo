@@ -21,6 +21,6 @@ jobs:
     - name: make changes
       run: |
         set -x
-        sudo grep -ri xsp4 /etc/systemd
+        sudo grep -ri xsp4 /etc/init.d
         xsp4 --version
         sudo cat /etc/default/mono-xsp4

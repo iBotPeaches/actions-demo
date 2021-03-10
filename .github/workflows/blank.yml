@@ -21,4 +21,5 @@ jobs:
     - name: make changes
       run: |
         set -x
+        xsp4
         sudo cat /etc/default/mono-xsp4

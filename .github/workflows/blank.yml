@@ -28,5 +28,5 @@ jobs:
     - name: status
       shell: pwsh
       run: |
-        ((/etc/init.d/mono-xsp4 status) | Select-Object -index 3).Split(' ')[1]
+        ((/etc/init.d/mono-xsp4 status) | Select-Object -index 3).Split(' ')
         

@@ -24,3 +24,9 @@ jobs:
         sudo /etc/init.d/mono-xsp4 status
         xsp4 --version
         sudo cat /etc/default/mono-xsp4
+        
+    - name: status
+      shell: pwsh
+      run: |
+        (/etc/init.d/mono-xsp4 status) | Select-Object -first 1
+        

@@ -21,6 +21,8 @@ jobs:
     - name: make changes
       run: |
         set -x
+        for i in {1..100}; do
+        echo "Attempt $i"
         dd of=/tmp/bin1 bs=10000000 seek=1 count=0
         ls -la /tmp/bin1
         dd of=/tmp/bin2 bs=10000000 seek=1 count=0
@@ -33,7 +35,4 @@ jobs:
         shasum -c /tmp/check || exit
         popd
         rm -rf /tmp/x
-
-
-
-
+        done

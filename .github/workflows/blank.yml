@@ -20,7 +20,7 @@ jobs:
     
     - name: make changes
       run: |
-        diskutil info -all.
+        diskutil info -all
         for i in {1..1}; do
            echo "Attempt $i"
            dd if=/dev/zero of=/tmp/bin1 bs=1048576 count=100 conv=sparse

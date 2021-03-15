@@ -21,9 +21,9 @@ jobs:
     - name: make changes
       run: |
         set -x
-        dd of=/tmp/bin1 bs=10M seek=1 count=0
+        dd of=/tmp/bin1 bs=10000000 seek=1 count=0
         ls -la /tmp/bin1
-        dd of=/tmp/bin2 bs=10M seek=1 count=0
+        dd of=/tmp/bin2 bs=10000000 seek=1 count=0
         ls -la /tmp/bin2
         shasum /tmp/bin1 /tmp/bin2 > /tmp/check
         tar  -cvf /tmp/arc.tar /tmp/bin1 /tmp/bin2

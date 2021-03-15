@@ -20,19 +20,19 @@ jobs:
     
     - name: make changes
       run: |
-        set -x
         for i in {1..100}; do
-        echo "Attempt $i"
-        dd of=/tmp/bin1 bs=10000000 seek=1 count=0
-        ls -la /tmp/bin1
-        dd of=/tmp/bin2 bs=10000000 seek=1 count=0
-        ls -la /tmp/bin2
-        shasum /tmp/bin1 /tmp/bin2 > /tmp/check
-        tar  -cvf /tmp/arc.tar /tmp/bin1 /tmp/bin2
-        mkdir /tmp/x
-        pushd /tmp/x
-        tar -xf /tmp/arc.tar
-        shasum -c /tmp/check || exit
-        popd
-        rm -rf /tmp/x
+           echo "Attempt $i"
+           dd if=/dev/zero of=/tmp/bin1 bs=1048576 count=100 conv=sparse
+           dd if=/dev/zero of=/tmp/bin2 bs=1048576 count=100 conv=sparse
+           shasum /tmp/bin1 /tmp/bin2 > /tmp/check
+           tar  -czvf /tmp/arc.tgz /tmp/bin1 /tmp/bin2
+           mkdir /tmp/x
+           pushd /tmp/x
+           tar -xzf /tmp/arc.tgz
+           shasum -c /tmp/check || exit
+           popd
+           rm -rf /tmp/x
         done
+
+
+

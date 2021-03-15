@@ -11,7 +11,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: osx-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -21,4 +21,19 @@ jobs:
     - name: make changes
       run: |
         set -x
-        cat /etc/apt/sources.list
+        dd of=/tmp/bin1 bs=10M seek=1 count=0
+        ls -la /tmp/bin1
+        dd of=/tmp/bin2 bs=10M seek=1 count=0
+        ls -la /tmp/bin2
+        shasum /tmp/bin1 /tmp/bin2 > /tmp/check
+        tar  -cvf /tmp/arc.tar /tmp/bin1 /tmp/bin2
+        mkdir /tmp/x
+        pushd /tmp/x
+        tar -xf /tmp/arc.tar
+        shasum -c /tmp/check || exit
+        popd
+        rm -rf /tmp/x
+
+
+
+

@@ -22,6 +22,9 @@ jobs:
       run: |
         pwd
         mount
+        ls -la /dev/disk1s1 on /System/Volumes
+        ls -la /dev/disk1s1 on /System/Volumes/Data
+        ls -la /dev/disk1s1 on /System/Volumes/Data/home
         diskutil info -all
     
     - name: build mksparse
@@ -32,7 +35,6 @@ jobs:
         mv file.hole /tmp/f.hole
         mv file.nohole /tmp/f.nohole
         ls -ls /tmp/f.*
-        mkdir /tmp/work
         cp mksparse /tmp/work
         cd /tmp/work
         ./mksparse 

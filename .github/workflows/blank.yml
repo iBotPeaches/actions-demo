@@ -24,6 +24,7 @@ jobs:
         sudo /etc/init.d/mono-xsp4 status
         xsp4 --version
         sudo cat /etc/default/mono-xsp4
+        sudo systemctl show -p ActiveState --value mono-xsp4
         
     - name: status
       shell: pwsh

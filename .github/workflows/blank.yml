@@ -44,18 +44,19 @@ jobs:
            echo "Attempt $i"
            test -f file.hole && rm file.hole
            ./mksparse 
-           ls -ls file.hole
            mv file.hole /tmp/bin1
            test -f file.hole && rm file.hole
            ./mksparse 
-           ls -ls file.hole
            mv file.hole /tmp/bin2
+           echo "files to tar:"
            ls -ls /tmp/bin?
            shasum /tmp/bin1 /tmp/bin2 > /tmp/check
            tar  -czvf /tmp/arc.tgz /tmp/bin1 /tmp/bin2
            mkdir /tmp/x
            pushd /tmp/x
            tar -xzf /tmp/arc.tgz
+           echo "untarred iles:"
+           ls -ls
            shasum -c /tmp/check || exit
            popd
            rm -rf /tmp/x

@@ -17,14 +17,27 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
-    - name: make changes
+
+    - name: show disk info
       run: |
         diskutil info -all
+    
+    - name: build mksparse
+      run: |
+        gcc mksparse.c -o mksparse
+        ./mksparse 
+         mv file.hole /tmp/f.hole
+         mv file.nohole /tmp/f.nohole
+         ls -ls /tmp/f.*
+
+    - name: tar
+      run: |
         for i in {1..1}; do
            echo "Attempt $i"
-           dd if=/dev/zero of=/tmp/bin1 bs=1048576 count=100 conv=sparse
-           dd if=/dev/zero of=/tmp/bin2 bs=1048576 count=100 conv=sparse
+           ./mksparse 
+           mv file.hole /tmp/bin1
+           ./mksparse 
+           mv file.hole /tmp/bin2
            shasum /tmp/bin1 /tmp/bin2 > /tmp/check
            tar  -czvf /tmp/arc.tgz /tmp/bin1 /tmp/bin2
            mkdir /tmp/x

@@ -54,10 +54,11 @@ jobs:
            tar  -czvf /tmp/arc.tgz /tmp/bin1 /tmp/bin2
            mkdir /tmp/x
            pushd /tmp/x
-           tar -xzf /tmp/arc.tgz
-           echo "untarred iles:"
+           tar -xvzf /tmp/arc.tgz
+           echo "untarred files:"
+           cd tmp
            ls -ls
-           shasum -c /tmp/check || exit
+           shasum -c /tmp/check || exit 1
            popd
            rm -rf /tmp/x
         done

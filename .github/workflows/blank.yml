@@ -32,9 +32,15 @@ jobs:
         mv file.hole /tmp/f.hole
         mv file.nohole /tmp/f.nohole
         ls -ls /tmp/f.*
+        mkdir /tmp/work
+        cp mksparse /tmp/work
+        cd /tmp/work
+        ./mksparse 
+        ls -ls
 
     - name: tar
       run: |
+        cd /tmp/work
         for i in {1..100}; do
            echo "Attempt $i"
            test -f file.hole && rm file.hole

@@ -42,12 +42,16 @@ jobs:
         cd /tmp/work
         for i in {1..100}; do
            echo "Attempt $i"
-           test -f file.hole && rm file.hole
-           ./mksparse 
-           mv file.hole /tmp/bin1
-           test -f file.hole && rm file.hole
-           ./mksparse 
-           mv file.hole /tmp/bin2
+           test -f /tmp/bin1 && rm /tmp/bin1
+           dd if=/dev/zero of=/tmp/bin1 bs=1k seek=1024 count=10
+           # test -f file.hole && rm file.hole
+           #./mksparse 
+           #mv file.hole /tmp/bin1
+           #test -f file.hole && rm file.hole
+           #./mksparse 
+           #mv file.hole /tmp/bin2
+           test -f /tmp/bin2 && rm /tmp/bin2
+           dd if=/dev/zero of=/tmp/bin2 bs=1k seek=1024 count=10
            echo "files to tar:"
            ls -ls /tmp/bin?
            shasum /tmp/bin1 /tmp/bin2 > /tmp/check

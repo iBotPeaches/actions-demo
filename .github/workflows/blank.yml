@@ -29,7 +29,7 @@ jobs:
     - name: status
       shell: pwsh
       run: |
-        (grep '^port=' /etc/default/mono-xsp4).Split('=')
+        (grep '^port=' /etc/default/mono-xsp4).Split('=')[1]
         systemctl show -p ActiveState --value mono-xsp4 | grep "Active:"
         ((/etc/init.d/mono-xsp4 status) | Select-Object -index 2).Split(' ')[6]
         ((/etc/init.d/mono-xsp4 status) | Select-Object -index 2).Split(' ')[7]

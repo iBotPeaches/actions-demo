@@ -21,6 +21,7 @@ jobs:
     - name: show disk info
       run: |
         pwd
+        mount
         diskutil info -all
     
     - name: build mksparse

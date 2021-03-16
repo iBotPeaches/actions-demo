@@ -20,11 +20,6 @@ jobs:
 
     - name: show disk info
       run: |
-        pwd
-        mount
-        ls -la /System/Volumes
-        ls -la /System/Volumes/Data
-        ls -la /System/Volumes/Data/home
         diskutil info -all
     
     - name: build mksparse
@@ -35,6 +30,7 @@ jobs:
         mv file.hole /tmp/f.hole
         mv file.nohole /tmp/f.nohole
         ls -ls /tmp/f.*
+        mkdir /tmp/work
         cp mksparse /tmp/work
         cd /tmp/work
         ./mksparse 

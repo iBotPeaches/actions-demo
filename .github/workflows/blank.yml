@@ -26,6 +26,7 @@ jobs:
       run: |
         gcc mksparse.c -o mksparse
         ./mksparse 
+        ls -la
          mv file.hole /tmp/f.hole
          mv file.nohole /tmp/f.nohole
          ls -ls /tmp/f.*

@@ -24,6 +24,7 @@ jobs:
     
     - name: build mksparse
       run: |
+        ls -lsa
         gcc mksparse.c -o mksparse
         ./mksparse 
         ls -ls

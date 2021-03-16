@@ -22,9 +22,9 @@ jobs:
       run: |
         pwd
         mount
-        ls -la /dev/disk1s1 on /System/Volumes
-        ls -la /dev/disk1s1 on /System/Volumes/Data
-        ls -la /dev/disk1s1 on /System/Volumes/Data/home
+        ls -la /System/Volumes
+        ls -la /System/Volumes/Data
+        ls -la /System/Volumes/Data/home
         diskutil info -all
     
     - name: build mksparse

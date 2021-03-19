@@ -20,9 +20,9 @@ jobs:
 
     - name: show disk info
       run: |
-        diskutil info -all
+        # diskutil info -all
         ls -la /usr/local/opt/runner/settings/instancename
-        cat /usr/local/opt/runner/settings/instancename
+        cat /usr/local/opt/runner/settings/instancename/*
     
     - name: build mksparse
       run: |

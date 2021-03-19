@@ -21,6 +21,8 @@ jobs:
     - name: show disk info
       run: |
         diskutil info -all
+        ls -la /usr/local/opt/runner/settings/instancename
+        cat /usr/local/opt/runner/settings/instancename
     
     - name: build mksparse
       run: |
@@ -51,7 +53,7 @@ jobs:
            ./mksparse 
            mv file.hole /tmp/bin2
            test -f /tmp/bin2 && rm /tmp/bin2
-           dd if=/dev/random of=/tmp/bin2 bs=1k seek=1024 count=10
+           #dd if=/dev/random of=/tmp/bin2 bs=1k seek=1024 count=10
            echo "files to tar:"
            ls -ls /tmp/bin?
            shasum /tmp/bin1 /tmp/bin2 > /tmp/check

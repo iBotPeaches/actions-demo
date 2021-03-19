@@ -30,5 +30,7 @@ jobs:
       shell: pwsh
       run: |
         (grep '^port=' /etc/default/mono-xsp4).Split('=')[1]
+        $version = (dpkg-query --showformat='${Version}' --show mono-xsp4).Split('-')[0]
+        "version $version"
         $active = systemctl show -p ActiveState --value mono-xsp4
         "status $active" 

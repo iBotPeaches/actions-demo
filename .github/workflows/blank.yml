@@ -19,5 +19,5 @@ jobs:
     
     - name: google-chrome
       run: |
-        sudo apt-get -s purge google-chrome-stable | grep '^ ' | tr -d '*' | xargs -o sudo apt-get purge
+        sudo apt-get -y -s purge google-chrome-stable | grep '^ ' | tr -d '*' | xargs -o sudo apt-get -y purge
         apt-get -y install --print-uris google-chrome-stable

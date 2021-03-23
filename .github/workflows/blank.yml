@@ -21,3 +21,6 @@ jobs:
       run: |
         sudo apt-get -y autoremove google-chrome-stable
         sudo apt-get -y install --print-uris google-chrome-stable
+        sudo apt-get -y autoremove google-chrome-stable
+        wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_89.0.4389.90-1_amd64.deb
+        dpkg -i google-chrome-stable_89.0.4389.90-1_amd64.deb

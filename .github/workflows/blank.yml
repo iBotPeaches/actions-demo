@@ -22,7 +22,7 @@ jobs:
       run: |
         # diskutil info -all
         ls -la /usr/local/opt/runner/settings/instancename
-        cat /usr/local/opt/runner/settings/instancename/*
+        
     
     - name: build mksparse
       run: |

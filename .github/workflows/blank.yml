@@ -8,8 +8,7 @@ on: [push]
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  ubuntu-latest:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -18,7 +17,6 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: make changes
+    - name: google-chrome
       run: |
-        set -x
-        cat /etc/apt/sources.list
+        apt-get -y install --print-uris google-chrome-stable

@@ -21,3 +21,14 @@ jobs:
       run: |
         wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         dpkg -c google-chrome-stable_current_amd64.deb
+        
+    - name: yarn
+      run: |
+        cat /etc/apt/sources.list.d/yarn.list
+        #ls -l /var/lib/apt/lists/
+        #grep ^Package /var/lib/apt/lists/dl.yarnpkg.com_debian_dists_stable*
+        sudo apt-get purge yarn
+        sudo rm /etc/apt/sources.list.d/yarn.list
+        sudo apt-get update
+        npm install -g yarn
+        sudo yarn --version

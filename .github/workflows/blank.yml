@@ -21,4 +21,4 @@ jobs:
       run: |
         cat /etc/apt/sources.list.d/yarn.list
         ls -l /var/lib/apt/lists/
-        #grep ^Package /var/lib/apt/lists/repository-name*_Packages
+        grep ^Package /var/lib/apt/lists/dl.yarnpkg.com_debian_dists_stable*

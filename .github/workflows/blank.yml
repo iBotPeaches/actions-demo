@@ -17,7 +17,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: google-chrome
+    - name: google-chrome-stable
       run: |
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         dpkg -c google-chrome-stable_current_amd64.deb

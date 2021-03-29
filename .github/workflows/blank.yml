@@ -23,4 +23,5 @@ jobs:
         nohup sleep 30&
         sleep 1
         killall sleep
-        ls -la
+        coredumpctl list
+        ls -la /var/lib/systemd/coredump/

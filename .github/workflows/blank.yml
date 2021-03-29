@@ -21,7 +21,8 @@ jobs:
     - name: make changes
       run: |
         ulimit -c unlimited
-        nohup sleep 30&
+        sysctl kernel.core_pattern
+        sleep 1000&
         sleep 1
         killall -SIGSEGV sleep
         ls -la

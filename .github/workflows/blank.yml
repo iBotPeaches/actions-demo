@@ -20,5 +20,7 @@ jobs:
     
     - name: make changes
       run: |
-        set -x
-        cat /etc/apt/sources.list
+        nohup sleep 30&
+        sleep 1
+        killall sleep
+        ls -la

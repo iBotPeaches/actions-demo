@@ -20,8 +20,8 @@ jobs:
     
     - name: make changes
       run: |
+        ulimit -c unlimited
         nohup sleep 30&
         sleep 1
         killall sleep
-        coredumpctl list
         ls -la /var/lib/systemd/coredump/

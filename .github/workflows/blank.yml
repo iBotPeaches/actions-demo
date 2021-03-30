@@ -20,6 +20,7 @@ jobs:
     
     - name: make changes
       run: |
+        sudo apt-get install gdb
         sudo /bin/sh -c 'echo "core" > /proc/sys/kernel/core_pattern'
         ulimit -c unlimited
         ulimit -a
@@ -27,8 +28,8 @@ jobs:
         sleep 1000&
         ps aux|grep sleep
         killall -SIGSEGV sleep
-        ls -la
-        ls -la /var/lib/systemd/coredump/
+        sleep 3
+        echo 'bt'|gdb `which sleep` -c core
 
 
 

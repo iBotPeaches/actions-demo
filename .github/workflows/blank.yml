@@ -24,6 +24,7 @@ jobs:
         ulimit -a
         sysctl kernel.core_pattern
         sleep 1000&
+        ps aux|grep sleep
         killall -SIGSEGV sleep
         ls -la
         ls -la /var/lib/systemd/coredump/

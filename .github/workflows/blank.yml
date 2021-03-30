@@ -23,7 +23,7 @@ jobs:
         ulimit -c unlimited
         ulimit -a
         sysctl kernel.core_pattern
-        nogup sleep 1000&
+        noрup sleep 1000&
         sleep 1
         killall -SIGSEGV sleep
         ls -la

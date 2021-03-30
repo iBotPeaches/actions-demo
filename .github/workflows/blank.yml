@@ -23,8 +23,12 @@ jobs:
         ulimit -c unlimited
         ulimit -a
         sysctl kernel.core_pattern
-        noрup sleep 1000&
-        sleep 1
+        sleep 1000&
         killall -SIGSEGV sleep
         ls -la
         ls -la /var/lib/systemd/coredump/
+
+
+
+
+

@@ -29,7 +29,10 @@ jobs:
         ps aux|grep sleep
         killall -SIGSEGV sleep
         sleep 3
-        echo 'bt'|gdb `which sleep` -c core
+        echo "WHERE"
+        echo 'where'|gdb `which sleep` -c core
+        echo "BT"
+        echo 'bt full'|gdb `which sleep` -c core
 
 
 

@@ -20,7 +20,7 @@ jobs:
     
     - name: make changes
       run: |
-        echo "core" > /proc/sys/kernel/core_pattern
+        suod /bin/sh -c 'echo "core" > /proc/sys/kernel/core_pattern'
         ulimit -c unlimited
         ulimit -a
         sysctl kernel.core_pattern

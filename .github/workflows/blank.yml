@@ -22,3 +22,16 @@ jobs:
       run: |
         df -m
         docker images
+        docker images rm microsoft/aspnetcore-build
+        docker images prune -a
+        
+        docker pull mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc201
+        df -m
+        
+        
+        
+        
+        
+        
+        
+        

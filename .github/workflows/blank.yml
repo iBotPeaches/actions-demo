@@ -22,11 +22,13 @@ jobs:
       run: |
         docker images
         df -m
-        docker pull alpine-3.12
+        docker pull alpine:3.11
         df -m
-        docker pull alpine-3.13
+        docker pull alpine:3.12
         df -m
-        docker pull debian-10
+        docker pull alpine:3.13
+        df -m
+        docker pull debian:10
         df -m
         docker pull ubuntu:16.04
         df -m

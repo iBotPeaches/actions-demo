@@ -26,7 +26,7 @@ jobs:
         docker rmi microsoft/aspnetcore-build:1.0-2.0
         docker images prune -a
         
-        # docker pull mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019
+        docker pull mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019
         df -m
         docker images
         

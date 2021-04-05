@@ -22,8 +22,6 @@ jobs:
       run: |
         docker images
         df -m
-        docker pull alpine-3.11
-        df -m
         docker pull alpine-3.12
         df -m
         docker pull alpine-3.13

@@ -23,7 +23,6 @@ jobs:
         docker images
         docker image rm debian:8
         docker image rm ubuntu:14.04
-        docker image rm ubuntu:14.04
         docker image rm alpine:3.7
         docker image rm alpine:3.8
         docker image rm alpine:3.9

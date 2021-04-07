@@ -21,6 +21,7 @@ jobs:
     - name: make changes
       run: |
         which bazel
+        ls -la `which bazel`
         dpkg -L bazel
         sudo apt remove bazel
         sudo npm uninstall -g baselisk

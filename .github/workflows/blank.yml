@@ -28,7 +28,7 @@ jobs:
         sudo rm `which bazel`
         which bazel || echo "no bazel"
         which baselisk || echo "no baselisk"
-        npm install -g @bazel/bazelisk
+        sudo npm install -g @bazel/bazelisk
         which bazel || echo "no bazel"
         which baselisk || echo "no baselisk"
 

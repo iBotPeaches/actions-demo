@@ -20,6 +20,8 @@ jobs:
     
     - name: make changes
       run: |
-        echo 'import ctypes' > ctypes.py
-        python ctypes.py
+        sudo apt unintall bazel
+        sudo npm unsinstall -g baselisk
+        which bazel || echo "no bazel"
+        which baselisk || echo "no baselisk"
         

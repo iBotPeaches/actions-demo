@@ -20,6 +20,7 @@ jobs:
     
     - name: make changes
       run: |
+        bazelisk version
         which bazel
         ls -la `which bazel`
         which baselisk || echo "no baselisk"

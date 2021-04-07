@@ -25,6 +25,12 @@ jobs:
         dpkg -L bazel
         sudo apt remove bazel
         sudo npm uninstall -g baselisk
+        sudo rm `which bazel`
         which bazel || echo "no bazel"
         which baselisk || echo "no baselisk"
-        
+        npm install -g @bazel/bazelisk
+        which bazel || echo "no bazel"
+        which baselisk || echo "no baselisk"
+
+
+

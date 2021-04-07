@@ -20,8 +20,8 @@ jobs:
     
     - name: make changes
       run: |
-        sudo apt uninstall bazel
-        sudo npm unsinstall -g baselisk
+        sudo apt remove bazel
+        sudo npm uninstall -g baselisk
         which bazel || echo "no bazel"
         which baselisk || echo "no baselisk"
         

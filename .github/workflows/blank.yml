@@ -20,7 +20,8 @@ jobs:
     
     - name: make changes
       run: |
-        which baselisk 
+        alias
+        ls -la /usr/local/bin/bazelisk
         bazelisk version
         which bazel
         ls -la `which bazel`

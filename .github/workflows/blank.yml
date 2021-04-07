@@ -24,6 +24,7 @@ jobs:
         ls -la `which bazel`
         which baselisk || echo "no baselisk"
         dpkg -L bazel
+        ls -la /usr/bin/bazel
         sudo apt remove bazel
         sudo npm uninstall -g baselisk
         sudo rm `which bazel`

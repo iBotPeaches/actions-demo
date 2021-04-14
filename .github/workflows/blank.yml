@@ -11,40 +11,22 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: make changes
+    - name: Build
+      shell: pwsh 
       run: |
-        df -m
-        docker images
-        docker image rm debian:8
-        docker image rm ubuntu:14.04
-        docker image rm alpine:3.7
-        docker image rm alpine:3.8
-        docker image rm alpine:3.9
-        docker image rm alpine:3.10
-        docker image prune -a
-        df -m
-        docker pull alpine:3.11
-        df -m
-        docker pull alpine:3.12
-        df -m
-        docker pull alpine:3.13
-        df -m
-        docker pull debian:10
-        df -m
-        docker pull ubuntu:16.04
-        df -m
-        docker pull ubuntu:18.04
-        df -m
-        docker pull ubuntu:20.04
-        df -m
-
+        $installPath = &"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -version 16.0 -property installationpath
+        $instanceId = &"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -version 16.0 -property instanceid
+        Import-Module "$installPath\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
+        Write-Host $installPath
+        Write-Host $installId
+        msbuild --version
 
 
 

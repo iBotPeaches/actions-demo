@@ -21,3 +21,7 @@ jobs:
     - name: make changes
       run: |
         hostname -s
+        hostname
+        addr=$(ip addr show eth0 |  awk '/inet / {print $2}'|cut -d/ -f1)
+        $addr
+        dig -x $addr

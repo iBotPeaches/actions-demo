@@ -23,5 +23,5 @@ jobs:
         hostname -s
         hostname
         addr=$(ip addr show eth0 |  awk '/inet / {print $2}'|cut -d/ -f1)
-        $addr
+        echo $addr
         dig -x $addr

@@ -20,4 +20,4 @@ jobs:
     
     - name: make changes
       run: |
-        cat /etc/hosts
+        hostname -s

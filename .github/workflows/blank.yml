@@ -21,10 +21,18 @@ jobs:
     - name: make changes
       run: |
         addr=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
-        echo "IP: $addr"
-        echo "==> -i"
-        hostname -i
-        echo "==> -s"
-        hostname -s
-        echo "==> -l"
-        hostname -l
+        addrh=$(hostname -i)
+        hs=$(hostname -s)
+        hf=$(hostname -f)
+        ptrs=$(nslookup $hs)
+        ptrf=$(nslookup $hf)
+
+        ls /data/instancename
+        echo "eth0 IP: $addr"
+        echo "hostname IP: $addrh"
+        echo "hostname -s: $hs / $ptrs"
+        echo "hostname -f: $fs / $ptrf"
+        
+        test $addr = $addrh || exit 1
+        test $addr = $ptrs || exit 2
+        test $addr = $ptrf || exit 3

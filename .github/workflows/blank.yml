@@ -24,17 +24,16 @@ jobs:
         addrh=$(hostname -i)
         hs=$(hostname -s)
         hf=$(hostname -f)
-        ptrs=$(nslookup $hs | awk '/Address:/ {print $2}')
-        ptrf=$(nslookup $hf | awk '/Address:/ {print $2}')
+        ptrs=$(nslookup $hs | awk '/Address:/ {print $2}') | tail -n +2
+        ptrf=$(nslookup $hf | awk '/Address:/ {print $2}') | tail -n +2
 
         ls /data/instancename
         echo "eth0 IP: $addr"
         echo "hostname IP: $addrh"
         nslookup $hs
         nslookup $hf
-
         echo "hostname -s: $hs / $ptrs"
-        echo "hostname -f: $fs / $ptrf"
+        echo "hostname -f: $hf / $ptrf"
         
         
         test $addr = $addrh || exit 1

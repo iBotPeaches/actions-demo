@@ -30,8 +30,12 @@ jobs:
         ls /data/instancename
         echo "eth0 IP: $addr"
         echo "hostname IP: $addrh"
+        nslookup $hs
+        nslookup $hf
+
         echo "hostname -s: $hs / $ptrs"
         echo "hostname -f: $fs / $ptrf"
+        
         
         test $addr = $addrh || exit 1
         test $addr = $ptrs || exit 2

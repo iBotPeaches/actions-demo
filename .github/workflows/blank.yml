@@ -20,14 +20,11 @@ jobs:
     
     - name: make changes
       run: |
-        ip addr show
-        hostname -s
-        hostname -f
         addr=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
-        echo $addr
-        echo PTR
-        dig -x $addr
-        echo $(hostname -s)
-        dig $(hostname -s)
-        echo $(hostname -f)
-        dig $(hostname -f)
+        echo "IP: $addr"
+        echo "==> -i"
+        hostname -i
+        echo "==> -s"
+        hostname -s
+        echo "==> -l"
+        hostname -l

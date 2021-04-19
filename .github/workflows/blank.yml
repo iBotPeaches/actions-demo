@@ -24,8 +24,8 @@ jobs:
         addrh=$(hostname -i)
         hs=$(hostname -s)
         hf=$(hostname -f)
-        ptrs=$(nslookup $hs)
-        ptrf=$(nslookup $hf)
+        ptrs=$(nslookup $hs | awk '/Address:/ {print $2}')
+        ptrf=$(nslookup $hf | awk '/Address:/ {print $2}')
 
         ls /data/instancename
         echo "eth0 IP: $addr"

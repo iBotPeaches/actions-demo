@@ -26,5 +26,5 @@ jobs:
         sudo add-apt-repository -y ppa:hvr/ghc
         cat /etc/apt/sources.list > /tmp/3
         ls -la /etc/apt/sources.list.d > /tmp/4
-        diff /tmp/1 /tmp3
-        diff /tmp/2 /tmp4
+        diff /tmp/1 /tmp/3
+        diff /tmp/2 /tmp/4

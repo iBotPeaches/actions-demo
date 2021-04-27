@@ -20,33 +20,5 @@ jobs:
     
     - name: make changes
       run: |
-        df -m
-        docker images
-        docker image rm debian:8
-        docker image rm ubuntu:14.04
-        docker image rm alpine:3.7
-        docker image rm alpine:3.8
-        docker image rm alpine:3.9
-        docker image rm alpine:3.10
-        docker image prune -a
-        df -m
-        docker pull alpine:3.11
-        df -m
-        docker pull alpine:3.12
-        df -m
-        docker pull alpine:3.13
-        df -m
-        docker pull debian:10
-        df -m
-        docker pull ubuntu:16.04
-        df -m
-        docker pull ubuntu:18.04
-        df -m
-        docker pull ubuntu:20.04
-        df -m
-
-
-
-
-
-
+        cat /etc/apt/sources.list
+        ls -la /etc/apt/sources.list

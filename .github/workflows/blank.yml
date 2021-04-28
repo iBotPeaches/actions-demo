@@ -20,5 +20,9 @@ jobs:
     
     - name: download
       run: |
+        security find-certificate -a|grep 'Apple Worldwide Developer Relations Certification Authorit'|grep subj
+        security find-certificate -a|grep 'Apple Worldwide Developer Relations Certification Authorit'|grep subj|wc -l
         curl https://www.apple.com/certificateauthority/AppleWWDRCAG3.cer --output $HOME/AppleWWDRCAG3.cer --silent
         sudo security add-trusted-cert -d -r unspecified -k /Library/Keychains/System.keychain $HOME/AppleWWDRCAG3.cer
+        security find-certificate -a|grep 'Apple Worldwide Developer Relations Certification Authorit'|grep subj
+        security find-certificate -a|grep 'Apple Worldwide Developer Relations Certification Authorit'|grep subj|wc -l

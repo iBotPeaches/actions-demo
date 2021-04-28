@@ -22,4 +22,4 @@ jobs:
       run: |
         cat /etc/apt/sources.list
         ls -la /etc/apt/sources.list
-        grep -r azure-cli /etc/apt
+        grep -r  packages.microsoft.com /etc/apt

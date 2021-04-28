@@ -18,11 +18,17 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: download
+    - name: before
       run: |
         security find-certificate -a|grep 'Apple Worldwide Developer Relations Certification Authorit'|grep subj
+        echo "count:"
         security find-certificate -a|grep 'Apple Worldwide Developer Relations Certification Authorit'|grep subj|wc -l
+    - name: add
+      run: |
         curl https://www.apple.com/certificateauthority/AppleWWDRCAG3.cer --output $HOME/AppleWWDRCAG3.cer --silent
         sudo security add-trusted-cert -d -r unspecified -k /Library/Keychains/System.keychain $HOME/AppleWWDRCAG3.cer
+    - name: after
+      run: |
         security find-certificate -a|grep 'Apple Worldwide Developer Relations Certification Authorit'|grep subj
+        echo "count:"
         security find-certificate -a|grep 'Apple Worldwide Developer Relations Certification Authorit'|grep subj|wc -l

@@ -26,5 +26,5 @@ jobs:
         architectures="$(plutil -extract SupportedTargets.macosx.Archs json -o - "${sdksettings_path}")"
         echo $architectures
         ls -la /Library/Developer/CommandLineTools/SDKs
-        cat /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib/libSystem.tbd
+        cat /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/usr/lib/libSystem.tbd
         #clang  -arch arm64  main.c

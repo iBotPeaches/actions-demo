@@ -25,3 +25,4 @@ jobs:
         echo $sdksettings_path
         architectures="$(plutil -extract SupportedTargets.macosx.Archs json -o - "${sdksettings_path}")"
         echo $architectures
+        clang  -arch arm64  main.c

@@ -20,33 +20,8 @@ jobs:
     
     - name: make changes
       run: |
-        df -m
-        docker images
-        docker image rm debian:8
-        docker image rm ubuntu:14.04
-        docker image rm alpine:3.7
-        docker image rm alpine:3.8
-        docker image rm alpine:3.9
-        docker image rm alpine:3.10
-        docker image prune -a
-        df -m
-        docker pull alpine:3.11
-        df -m
-        docker pull alpine:3.12
-        df -m
-        docker pull alpine:3.13
-        df -m
-        docker pull debian:10
-        df -m
-        docker pull ubuntu:16.04
-        df -m
-        docker pull ubuntu:18.04
-        df -m
-        docker pull ubuntu:20.04
-        df -m
-
-
-
-
-
-
+        xcode_dir="$(xcode-select -p | head -1)"
+        sdksettings_path="${xcode_dir}/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/SDKSettings.plist"
+        echo $sdksettings_path
+        architectures="$(plutil -extract SupportedTargets.macosx.Archs json -o - "${sdksettings_path}")"
+        echo $architectures

@@ -11,39 +11,20 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: make changes
+    - name: shell
       run: |
-        df -m
-        docker images
-        docker image rm debian:8
-        docker image rm ubuntu:14.04
-        docker image rm alpine:3.7
-        docker image rm alpine:3.8
-        docker image rm alpine:3.9
-        docker image rm alpine:3.10
-        docker image prune -a
-        df -m
-        docker pull alpine:3.11
-        df -m
-        docker pull alpine:3.12
-        df -m
-        docker pull alpine:3.13
-        df -m
-        docker pull debian:10
-        df -m
-        docker pull ubuntu:16.04
-        df -m
-        docker pull ubuntu:18.04
-        df -m
-        docker pull ubuntu:20.04
-        df -m
+       echo %JAVA_HOME%
+       echo %PATH%
+       cd %JAVA_HOME%\bin
+       dir
+       java
 
 
 

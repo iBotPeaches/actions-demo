@@ -20,7 +20,8 @@ jobs:
     
     - name: make changes
       run: |
-        Get-ChildItem -Path "C:\Program Files (x86)\Microsoft Visual Studio\2019" -Filter mspdbcore.dll -Recurse -ErrorAction SilentlyContinue -Force
+        # Get-ChildItem -Path "C:\Program Files (x86)\Microsoft Visual Studio\2019" -Filter mspdbcore.dll -Recurse -ErrorAction SilentlyContinue -Force
+        Get-ChildItem -Path "C:\hostedtoolcache\windows\GraalVM" -Filter mspdbcore.dll -Recurse -ErrorAction SilentlyContinue -Force
 
 
 

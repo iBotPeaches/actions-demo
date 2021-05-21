@@ -21,7 +21,7 @@ jobs:
     - name: make changes
       shell: bash
       run: |
-        find "'\\Program Files (x86)\\Microsoft Visual Studio\\2019\\" -name mspdbcore.dll
+        find "\\Program Files (x86)\\Microsoft Visual Studio\\2019" -name mspdbcore.dll
 
 
 

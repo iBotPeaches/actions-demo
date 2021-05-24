@@ -5,7 +5,13 @@ name: CI
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on: [push]
-    
+
+env:
+  # Please ensure that this is in sync with graalVersion in build.sbt
+  graalVersion: 21.1.0
+  # Please ensure that this is in sync with javaVersion in build.sbt
+  javaVersion: 11
+  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -20,10 +26,16 @@ jobs:
     
     - name: make changes
       run: |
-        # Get-ChildItem -Path "C:\Program Files (x86)\Microsoft Visual Studio\2019" -Filter mspdbcore.dll -Recurse -ErrorAction SilentlyContinue -Force
-        Get-ChildItem -Path "C:\hostedtoolcache\windows\GraalVM" -Filter mspdbcore.dll -Recurse -ErrorAction SilentlyContinue -Force
-
-
+        dir "C:\hostedtoolcache"
+    - name: Setup GraalVM Environment
+      uses: ayltai/setup-graalvm@v1
+      with:
+        graalvm-version: ${{ env.graalVersion }}
+        java-version: ${{ env.javaVersion }}
+        native-image: true
+    - name: make changes
+      run: |
+        dir "C:\hostedtoolcache"
 
 
 

@@ -24,18 +24,15 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: make changes
-      run: |
-        dir "C:\hostedtoolcache\windows"
     - name: Setup GraalVM Environment
       uses: ayltai/setup-graalvm@v1
       with:
         graalvm-version: ${{ env.graalVersion }}
         java-version: ${{ env.javaVersion }}
         native-image: true
-    - name: make changes
+    - name: find mspdbcore.dll
       run: |
-        dir "C:\hostedtoolcache\windows"
+        Get-ChildItem -Path "C:\hostedtoolcache\windows\GraalVM" -Filter mspdbcore.dll -Recurse -ErrorAction SilentlyContinue -Force
 
 
 

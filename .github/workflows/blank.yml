@@ -24,4 +24,5 @@ jobs:
         #grep GLIBCXX_3.4.29 -l /usr/lib/x86_64-linux-gnu/*
         ls -la /usr/lib/x86_64-linux-gnu/libstdc++*
         dpkg -S  /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.29
+        apt-cache showpkg libstdc++6:amd64
 

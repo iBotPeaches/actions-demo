@@ -25,6 +25,8 @@ jobs:
         ls -la /usr/lib/x86_64-linux-gnu/libstdc++*
         # dpkg -S  /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.29
         # apt-cache showpkg libstdc++6:amd64
-        sudo apt-get install -f -t bionic libstdc++6
+        #sudo apt-get install -f -t bionic libstdc++6
+        apt-get download -t bionic libstdc++6
+        ls -la
 
 

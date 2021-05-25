@@ -36,7 +36,7 @@ jobs:
         ls -la
         #sudo dpkg -t bionic -i libstdc++6_11.1.0-1ubuntu1~18.04.1_amd64.deb
         #dpkg -c libstdc++6_11.1.0-1ubuntu1~18.04.1_amd64.deb
-        dpkg -c libstdc++6_11.1.0-1ubuntu1~18.04.1_amd64.deb
+        #dpkg -c libstdc++6_11.1.0-1ubuntu1~18.04.1_amd64.deb
         #ls -la /usr/lib/x86_64-linux-gnu/libstdc++*
 
 

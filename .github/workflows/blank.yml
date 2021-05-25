@@ -28,7 +28,7 @@ jobs:
         ls -la `which gcc`
         ls -la `which gcc-10`
         ls -la `which gcc-11`
-        apt-get -y purge g++-11
+        sudo apt-get -y purge g++-11
         ls -la /usr/lib/x86_64-linux-gnu/libstdc++*
         strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep "GLIBCXX"
 

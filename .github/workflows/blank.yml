@@ -31,8 +31,9 @@ jobs:
         sudo apt-get -y purge g++-11
         sudo apt-get -y purge g++-10
         sudo apt-get -y purge g++-9
+        sudo apt-get -y purge libstdc++6
         ls -la /usr/lib/x86_64-linux-gnu/libstdc++*
-        strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep "GLIBCXX"
+        #strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep "GLIBCXX"
         sudo apt-get -y install g++-9
         ls -la /usr/lib/x86_64-linux-gnu/libstdc++*
         strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep "GLIBCXX"

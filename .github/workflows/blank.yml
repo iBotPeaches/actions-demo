@@ -20,6 +20,9 @@ jobs:
     
     - name: make changes
       run: |
+        ls /etc/apt
+        cat /etc/apt/sources.list
+        ls /etc/apt/sources.list.d
         #strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep "GLIBCXX"
         #grep GLIBCXX_3.4.29 -l /usr/lib/x86_64-linux-gnu/*
         ls -la /usr/lib/x86_64-linux-gnu/libstdc++*

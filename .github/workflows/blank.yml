@@ -23,7 +23,7 @@ jobs:
         #ls /etc/apt
         #cat /etc/apt/sources.list
         #ls /etc/apt/sources.list.d
-        sudo rm /etc/apt/sources.list.d/*ppa*
+        sudo rm /etc/apt/sources.list.d/ubuntu-toolchain-r-ubuntu-test-bionic*
         grep -r ubuntu-toolchain /etc/apt
         sudo apt-get update
         #strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep "GLIBCXX"

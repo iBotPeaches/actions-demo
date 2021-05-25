@@ -28,5 +28,7 @@ jobs:
         #sudo apt-get install -f -t bionic libstdc++6
         apt-get download -t bionic libstdc++6
         ls -la
+        sudo dpkg -i libstdc++6_11.1.0-1ubuntu1~18.04.1_amd64.deb
+        ls -la /usr/lib/x86_64-linux-gnu/libstdc++*
 
 

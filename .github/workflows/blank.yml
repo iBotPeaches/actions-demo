@@ -24,7 +24,7 @@ jobs:
         #cat /etc/apt/sources.list
         #ls /etc/apt/sources.list.d
         sudo rm /etc/apt/sources.list.d/ubuntu-toolchain-r-ubuntu-test-bionic*
-        grep -r ubuntu-toolchain /etc/apt
+        grep -r ubuntu-toolchain /etc/apt || echo no toolchains
         sudo apt-get update
         #strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep "GLIBCXX"
         #grep GLIBCXX_3.4.29 -l /usr/lib/x86_64-linux-gnu/*

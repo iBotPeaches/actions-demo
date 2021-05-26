@@ -33,7 +33,7 @@ jobs:
         #apt-cache showpkg libstdc++6:amd64
         echo only
         sudo apt-get install --download-only libstdc++6
-        ls ls
+        ls -la
         echo donwl
         apt-get download libstdc++6
         ls -la

@@ -32,6 +32,11 @@ jobs:
     #    native-image: true
     
     
+    - name: show env
+      run: |
+        Get-ChildItem env:* | Select-String LIB
+        Get-ChildItem env:* | Select-String PATH
+    
     - name: find mspdbcore.dll
       run: |
         Get-ChildItem -Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\" -Filter mspdbcore.dll -Recurse -ErrorAction SilentlyContinue -Force

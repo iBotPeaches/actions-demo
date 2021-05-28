@@ -33,8 +33,8 @@ jobs:
     - name: find mspdbcore.dll
       run: |
         Get-ChildItem -Path "C:\hostedtoolcache\windows\GraalVM" -Filter mspdbcore.dll -Recurse -ErrorAction SilentlyContinue -Force
-
-
-
-
-
+        
+    - name: copy mspdbcore.dll to LIBPATH
+      run: |
+        copy "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29910\bin\Hostx86\x86\mspdbcore.dll" "~\mspdbcore.dll"          
+      

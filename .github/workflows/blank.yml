@@ -34,14 +34,15 @@ jobs:
     
     - name: show env
       run: |
-        Get-ChildItem env:* | Select-String LIB
-        Get-ChildItem env:* | Select-String PATH
+        Get-ChildItem env:*
+   #     Get-ChildItem env:* | Select-String LIB
+   #     Get-ChildItem env:* | Select-String PATH
     
-    - name: find mspdbcore.dll
-      run: |
-        Get-ChildItem -Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\" -Filter mspdbcore.dll -Recurse -ErrorAction SilentlyContinue -Force
+   # - name: find mspdbcore.dll
+   #   run: |
+   #     Get-ChildItem -Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\" -Filter mspdbcore.dll -Recurse -ErrorAction SilentlyContinue -Force
         
-    - name: copy mspdbcore.dll to LIBPATH
-      run: |
-        copy "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29910\bin\Hostx86\x86\mspdbcore.dll" "~\mspdbcore.dll"          
+   # - name: copy mspdbcore.dll to LIBPATH
+   #   run: |
+   #     copy "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29910\bin\Hostx86\x86\mspdbcore.dll" "~\mspdbcore.dll"          
       

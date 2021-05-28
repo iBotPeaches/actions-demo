@@ -35,7 +35,8 @@ jobs:
     - name: show env
       run: |
         Get-ChildItem env:*
-        dir "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC"
+        echo '========================='
+        Get-ChildItem -Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC"
    #     Get-ChildItem env:* | Select-String LIB
    #     Get-ChildItem env:* | Select-String PATH
     

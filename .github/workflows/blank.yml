@@ -17,7 +17,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: ubuntu-20.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -32,19 +32,6 @@ jobs:
     #    native-image: true
     
     
-    - name: show env
+    - name: rebar3 update
       run: |
-        Get-ChildItem env:*
-        echo '========================='
-        (Get-ChildItem -Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC").FullName
-   #     Get-ChildItem env:* | Select-String LIB
-   #     Get-ChildItem env:* | Select-String PATH
-    
-   # - name: find mspdbcore.dll
-   #   run: |
-   #     Get-ChildItem -Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\" -Filter mspdbcore.dll -Recurse -ErrorAction SilentlyContinue -Force
-        
-   # - name: copy mspdbcore.dll to LIBPATH
-   #   run: |
-   #     copy "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29910\bin\Hostx86\x86\mspdbcore.dll" "~\mspdbcore.dll"          
-      
+        rebar3 update

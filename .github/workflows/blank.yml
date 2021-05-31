@@ -31,7 +31,10 @@ jobs:
     #    java-version: ${{ env.javaVersion }}
     #    native-image: true
     
-    
     - name: rebar3 update
       run: |
         rebar3 update
+    
+    - name: rebar3 compile
+      run: |
+        rebar3 compile

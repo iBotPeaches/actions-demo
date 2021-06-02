@@ -39,7 +39,15 @@ jobs:
       if: ${{ matrix.os == 'ubuntu-20.04' }}
       run: |
         dpkg-query -L libc++-10-dev
+
+    - name: show libc++-11-dev files
+      if: ${{ matrix.os == 'ubuntu-20.04' }}
+      run: |
         dpkg-query -L libc++-11-dev
+
+    - name: show libc++-12-dev files
+      if: ${{ matrix.os == 'ubuntu-20.04' }}
+      run: |
         dpkg-query -L libc++-12-dev
 
 

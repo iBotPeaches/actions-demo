@@ -45,10 +45,23 @@ jobs:
       run: |
         dpkg-query -L libc++-10-dev
 
-    - name: find a package usr/lib/llvm-12 installed from 
+    - name: get a list of packages  usr/lib/llvm-12 can be installed from 
       if: ${{ matrix.os == 'ubuntu-20.04' }}
       run: |
         dpkg -S /usr/lib/llvm-12/lib
+        echo "content of libclang-cpp12"
+        dpkg-query -L libclang-cpp12
+        echo "content of libomp-12-dev"
+        dpkg-query -L libomp-12-dev
+        echo "content of liblldb-12"
+        dpkg-query -L liblldb-12
+        echo "content of clang-12"
+        dpkg-query -L clang-12
+        echo "content libclang-common-12-dev"
+        dpkg-query -L libclang-common-12-dev
+        echo "content llvm-12-dev"
+        dpkg-query -L llvm-12-dev
+
 
     - name: show clang version
       run: |

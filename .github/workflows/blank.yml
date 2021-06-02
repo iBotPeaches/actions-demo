@@ -14,7 +14,7 @@ jobs:
       matrix:
         os: [ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
     
-    runs-on: ${{ mztrix.os }}
+    runs-on: ${{ matrix.os }}
 
 
     # Steps represent a sequence of tasks that will be executed as part of the job

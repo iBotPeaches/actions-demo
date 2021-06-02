@@ -22,10 +22,14 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: show libc++ version
+    - name: show libc++-dev version
       run: |
         apt-cache policy libc++-dev
         dpkg -s libc++-dev | grep Version
+
+    - name: show libc++-dev files
+      run: |
+        dpkg-query -L libc++-dev
     
     - name: test constexpr
       run: |

@@ -39,6 +39,9 @@ jobs:
       if: ${{ matrix.os == 'ubuntu-20.04' }}
       run: |
         dpkg-query -L libc++-10-dev
+        dpkg-query -L libc++-11-dev
+        dpkg-query -L libc++-12-dev
+
 
     - name: show clang version
       run: |

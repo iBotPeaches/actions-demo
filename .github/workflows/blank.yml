@@ -10,13 +10,22 @@ on: [push]
 jobs:
   # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
+    
+    runs-on: ${{ mztrix.os }}
+
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+
+    - name: show libc++ version
+      run: |
+        apt-cache policy libc++-dev
+        dpkg -s libc++-dev | grep Version
     
     - name: test constexpr
       run: |

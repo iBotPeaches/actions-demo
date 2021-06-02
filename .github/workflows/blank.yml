@@ -35,6 +35,12 @@ jobs:
       run: |
         ls -la /usr/lib/llvm-*
 
+    - name: find libc++ files in fs
+      if: ${{ matrix.os == 'ubuntu-20.04' }}
+      run: |
+        find /ust/lib -name iostream
+        find /ust/lib -name libc++.so
+
     - name: show llvm-12/lib
       if: ${{ matrix.os == 'ubuntu-20.04' }}
       run: |

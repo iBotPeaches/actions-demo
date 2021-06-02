@@ -35,21 +35,20 @@ jobs:
       run: |
         ls -la /usr/lib/llvm-*
 
+    - name: show llvm-12/lib
+      if: ${{ matrix.os == 'ubuntu-20.04' }}
+      run: |
+        ls -la /usr/lib/llvm-12/lib
+
     - name: show libc++-10-dev files
       if: ${{ matrix.os == 'ubuntu-20.04' }}
       run: |
         dpkg-query -L libc++-10-dev
 
-    - name: show libc++-11-dev files
+    - name: find a package usr/lib/llvm-12 installed from 
       if: ${{ matrix.os == 'ubuntu-20.04' }}
       run: |
-        dpkg-query -L libc++-11-dev
-
-    - name: show libc++-12-dev files
-      if: ${{ matrix.os == 'ubuntu-20.04' }}
-      run: |
-        dpkg-query -L libc++-12-dev
-
+        dpkg -S /usr/lib/llvm-12/lib
 
     - name: show clang version
       run: |

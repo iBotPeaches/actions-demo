@@ -30,7 +30,7 @@ jobs:
 
     - name: attempt to install libc++-12
       run: |
-        apt-get install libc++-12-dev
+        sudo apt-get install libc++-12-dev
 
     - name: show clang version
       run: |

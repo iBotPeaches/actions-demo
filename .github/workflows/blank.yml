@@ -23,57 +23,14 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: show libc++-dev version
+    - name: show repos
       run: |
-        apt-cache policy libc++-dev
-        dpkg -s libc++-dev | grep Version
+        cat /etc/apt/sources.list
+        ls -la /etc/apt/sources.list.d
 
-    - name: show libc++-dev files
+    - name: attempt to install libc++-12
       run: |
-        dpkg-query -L libc++-dev
-
-    - name: show llvms
-      run: |
-        ls -la /usr/lib/llvm-*
-
-    - name: find libc++ files in /usr/lib
-      if: ${{ matrix.os == 'ubuntu-20.04' }}
-      run: |
-        #    find /usr/lib -name iostream
-        #find /usr/lib -name libc++.so
-        ls -la /usr/lib/llvm-10/include/c++/v1/iostream
-        ls -la /usr/lib/x86_64-linux-gnu/libc++.so
-        ls -la /usr/lib/llvm-10/lib/libc++.so
-
-    - name: show llvm-12/lib
-      if: ${{ matrix.os == 'ubuntu-20.04' }}
-      run: |
-        ls -la /usr/lib/llvm-12/lib
-
-    - name: show libc++-10-dev files
-      if: ${{ matrix.os == 'ubuntu-20.04' }}
-      run: |
-        dpkg-query -L libc++-10-dev
-
-    - name: get a list of packages  usr/lib/llvm-10 can be installed from 
-      if: ${{ matrix.os == 'ubuntu-20.04' }}
-      run: |
-        dpkg -S /usr/lib/llvm-10/include/c++/v1/iostream
-        dpkg -S /usr/lib/x86_64-linux-gnu/libc++.so
-        dpkg -S /usr/lib/llvm-10/lib/libc++.so
-#        echo "content of libclang-cpp12"
-#        dpkg-query -L libclang-cpp12
-#        echo "content of libomp-12-dev"
-#        dpkg-query -L libomp-12-dev
-#        echo "content of liblldb-12"
-#        dpkg-query -L liblldb-12
-#        echo "content of clang-12"
-#        dpkg-query -L clang-12
-#        echo "content libclang-common-12-dev"
-#        dpkg-query -L libclang-common-12-dev
-#        echo "content llvm-12-dev"
-#        dpkg-query -L llvm-12-dev
-
+        apt-get install libc++-12-dev
 
     - name: show clang version
       run: |

@@ -30,6 +30,10 @@ jobs:
     - name: show libc++-dev files
       run: |
         dpkg-query -L libc++-dev
+
+    - name: show clang version
+      run: |
+        clang++ --version
     
     - name: test constexpr
       run: |

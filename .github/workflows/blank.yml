@@ -12,7 +12,8 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
+        os: [ubuntu-20.04]
+        #        os: [ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
     
     runs-on: ${{ matrix.os }}
 
@@ -35,11 +36,11 @@ jobs:
       run: |
         ls -la /usr/lib/llvm-*
 
-    - name: find libc++ files in fs
+    - name: find libc++ files in /usr/lib
       if: ${{ matrix.os == 'ubuntu-20.04' }}
       run: |
-        find /ust/lib -name iostream
-        find /ust/lib -name libc++.so
+        find /usr/lib -name iostream
+        find /usr/lib -name libc++.so
 
     - name: show llvm-12/lib
       if: ${{ matrix.os == 'ubuntu-20.04' }}

@@ -41,6 +41,10 @@ jobs:
       run: |
         sudo apt-get check
 
+    - name: install aptitude
+      run: |
+        sudo apt-get install -y aptitude
+
     - name: attempt to install libc++-12
       run: |
         sudo aptitude install -y libc++-12-dev

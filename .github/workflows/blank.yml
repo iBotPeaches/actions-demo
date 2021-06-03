@@ -23,16 +23,19 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    - name: show repos before
+      run: |
+        grep apt.llvm.org /etc/apt/sources.list
+
     - name: install llvm repos
       run: |
         wget https://apt.llvm.org/llvm.sh
         chmod +x llvm.sh
         sudo ./llvm.sh 12
 
-    - name: show repos
+    - name: show repos after
       run: |
-        cat /etc/apt/sources.list
-        ls -la /etc/apt/sources.list.d
+        grep apt.llvm.org /etc/apt/sources.list
 
     - name: attempt to install libc++-12
       run: |
@@ -42,7 +45,16 @@ jobs:
       run: |
         dpkg -L libc++-12-dev
 
-    - name: show clang version
+    - name: show default clang version
+      run: |
+        clang++ --version
+
+    - name: switch clang version to 12
+      run: |
+        update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 100
+        update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 100
+
+    - name: show current clang version
       run: |
         clang++ --version
     

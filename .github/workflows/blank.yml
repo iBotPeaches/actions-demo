@@ -37,10 +37,6 @@ jobs:
       run: |
         grep apt.llvm.org /etc/apt/sources.list
 
-    - name: fix repo (since June 3)
-      run: |
-        sudo apt-get check
-
     - name: install aptitude
       run: |
         sudo apt-get install -y aptitude
@@ -59,8 +55,8 @@ jobs:
 
     - name: switch clang version to 12
       run: |
-        update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 100
-        update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 100
+        sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 100
+        sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 100
 
     - name: show current clang version
       run: |

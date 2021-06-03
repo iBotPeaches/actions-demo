@@ -43,7 +43,8 @@ jobs:
 
     - name: attempt to install libc++-12
       run: |
-        sudo aptitude install -y libc++-12-dev
+        # sudo aptitude install -y libc++-12-dev
+        sudo apt-get install -y libc++-12-dev -libc++abi-12-dev
 
     - name: show content of libx++-12-dev
       run: |
@@ -59,7 +60,6 @@ jobs:
         ls -la `which clang++`
         ls -la /etc/alternatives/clang
         ls -la /etc/alternatives/clang++
-        ls /etc/alternatives
 
     - name: switch clang version to 12
       run: |
@@ -72,7 +72,6 @@ jobs:
         ls -la `which clang++`
         ls -la /etc/alternatives/clang
         ls -la /etc/alternatives/clang++
-        ls /etc/alternatives
 
     - name: show current clang version
       run: |

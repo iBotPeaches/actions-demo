@@ -57,6 +57,9 @@ jobs:
       run: |
         ls -la `which clang`
         ls -la `which clang++`
+        ls -la /etc/alternatives/clang
+        ls -la /etc/alternatives/clang++
+        ls /etc/alternatives
 
     - name: switch clang version to 12
       run: |
@@ -67,6 +70,9 @@ jobs:
       run: |
         ls -la `which clang`
         ls -la `which clang++`
+        ls -la /etc/alternatives/clang
+        ls -la /etc/alternatives/clang++
+        ls /etc/alternatives
 
     - name: show current clang version
       run: |

@@ -39,9 +39,7 @@ jobs:
 
     - name: fix repo (since June 3)
       run: |
-        sudo apt-get upgrade
-        sudo apt-get clean
-        sudo apt-get autoremove
+        sudo dpkg --configure -a 
 
     - name: attempt to install libc++-12
       run: |

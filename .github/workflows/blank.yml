@@ -39,7 +39,7 @@ jobs:
 
     - name: attempt to install libc++-12
       run: |
-        sudo apt-get install libc++-12-dev
+        sudo apt-get install libc++-12-dev libc++1-12
 
     - name: show content of libx++-12-dev
       run: |

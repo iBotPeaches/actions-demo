@@ -37,9 +37,14 @@ jobs:
       run: |
         grep apt.llvm.org /etc/apt/sources.list
 
-    - name: attempt to install libc++-12
+    - name: fix repo (since June 3)
       run: |
         sudo apt-get upgrade
+        sudo apt-get clean
+        sudo apt-get autoremove
+
+    - name: attempt to install libc++-12
+      run: |
         sudo apt-get install libc++-12-dev
 
     - name: show content of libx++-12-dev

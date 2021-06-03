@@ -23,46 +23,25 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: show repos before
-      run: |
-        grep apt.llvm.org /etc/apt/sources.list || echo "No llvv repo"
-
     - name: install llvm repos
       run: |
         wget https://apt.llvm.org/llvm.sh
         chmod +x llvm.sh
         sudo ./llvm.sh 12
 
-    - name: attempt to install libc++-12
+    - name: install libc++-12
       run: |
         sudo apt-get install -y libc++-12-dev libc++abi-12-dev
 
-    - name: show content of libx++-12-dev
+    - name: show content of libc++-12-dev
       run: |
         dpkg -L libc++-12-dev
-
-    - name: show default clang version
-      run: |
-        clang++ --version
-
-    - name: which clang before
-      run: |
-        ls -la `which clang`
-        ls -la `which clang++`
-        ls -la /etc/alternatives/clang
-        ls -la /etc/alternatives/clang++
+        ls -la /usr/lib/x86_64-linux-gnu/libc++*
 
     - name: switch clang version to 12
       run: |
         sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 101
         sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 101
-
-    - name: which clang after
-      run: |
-        ls -la `which clang`
-        ls -la `which clang++`
-        ls -la /etc/alternatives/clang
-        ls -la /etc/alternatives/clang++
 
     - name: show current clang version
       run: |

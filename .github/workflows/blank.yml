@@ -53,10 +53,20 @@ jobs:
       run: |
         clang++ --version
 
+    - name: which clang before
+      run: |
+        ls -la `which clang`
+        ls -la `which clang++`
+
     - name: switch clang version to 12
       run: |
         sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 100
         sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 100
+
+    - name: which clang after
+      run: |
+        ls -la `which clang`
+        ls -la `which clang++`
 
     - name: show current clang version
       run: |

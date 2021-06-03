@@ -50,8 +50,8 @@ jobs:
     
     - name: test constexpr
       run: |
-        clang++12 -std=c++14 -Werror -stdlib=libc++ test-14-constexpr.cpp && ./a.out
+        clang++-12 -std=c++14 -Werror -stdlib=libc++ test-14-constexpr.cpp && ./a.out
     
     - name: test auto-lambda
       run: |
-        clang++12 -std=c++14 -Werror -stdlib=libc++ test-14-auto-lambda.cpp && ./a.out
+        clang++-12 -std=c++14 -Werror -stdlib=libc++ test-14-auto-lambda.cpp && ./a.out

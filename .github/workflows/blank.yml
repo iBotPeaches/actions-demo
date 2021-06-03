@@ -40,11 +40,12 @@ jobs:
     - name: fix repo (since June 3)
       run: |
         sudo apt-get install -f
-        sudo apt-get remove -f
+        sudo dpkg --configure -a
+        sudo apt-get install -f
 
     - name: attempt to install libc++-12
       run: |
-        sudo apt-get install libc++-12-dev
+        sudo apt-get install -y libc++-12-dev
 
     - name: show content of libx++-12-dev
       run: |

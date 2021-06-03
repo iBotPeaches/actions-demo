@@ -37,7 +37,7 @@ jobs:
       run: |
         dpkg -L libc++-12-dev
         ls -la /usr/lib/x86_64-linux-gnu/libc++*
-        ls -la usr/share/lintian/overrides/libc++*
+        ls -la /usr/share/lintian/overrides/libc++*
 
     - name: switch clang version to 12
       run: |

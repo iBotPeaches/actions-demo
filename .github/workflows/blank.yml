@@ -25,7 +25,7 @@ jobs:
 
     - name: show repos before
       run: |
-        grep apt.llvm.org /etc/apt/sources.list
+        grep apt.llvm.org /etc/apt/sources.list || echo "No llvv repo"
 
     - name: install llvm repos
       run: |

@@ -23,7 +23,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: install llvm repos
+    - name: restore llvm repos
       run: |
         wget https://apt.llvm.org/llvm.sh
         chmod +x llvm.sh

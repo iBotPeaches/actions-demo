@@ -33,17 +33,8 @@ jobs:
         chmod +x llvm.sh
         sudo ./llvm.sh 12
 
-    - name: show repos after
-      run: |
-        grep apt.llvm.org /etc/apt/sources.list
-
-    - name: install aptitude
-      run: |
-        sudo apt-get install -y aptitude
-
     - name: attempt to install libc++-12
       run: |
-        # sudo aptitude install -y libc++-12-dev
         sudo apt-get install -y libc++-12-dev libc++abi-12-dev
 
     - name: show content of libx++-12-dev

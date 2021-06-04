@@ -30,13 +30,14 @@ jobs:
         sudo ./llvm.sh 10
         sudo ./llvm.sh 11
         sudo ./llvm.sh 12
-        cat /etc/apt/sources.list
-        ls -la /etc/apt/sources.list.d
-        cat /etc/apt/sources.list.d/microsoft-prod.list
-        
-    - name: use llvm
+    
+    - name: move llvm repos
       run: |
-        LSB_RELEASE=$(lsb_release -rs)
-        wget https://packages.microsoft.com/config/ubuntu/$LSB_RELEASE/packages-microsoft-prod.deb
-        sudo dpkg -I packages-microsoft-prod.deb
+        grep apt.llvm.org/focal /etc/apt/sources.list| sudo tee /etc/apt/sources.list.d/llvm.list
+        sudo sed -i'' /apt.llvm.org/d' /etc/apt/sources.list
+        sudo apt-get update
+        
+    - name: use llvm repos
+      run: |
+        sudo apt-get install -y libc++-12-dev libc++abi-12-dev
 

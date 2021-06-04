@@ -35,9 +35,11 @@ jobs:
       run: |
         grep apt.llvm.org/focal /etc/apt/sources.list| sudo tee /etc/apt/sources.list.d/llvm.list
         sudo sed -i'' -e /apt.llvm.org/d /etc/apt/sources.list
+        echo "Update"
         sudo apt-get update
         
     - name: use llvm repos
       run: |
-        sudo apt-get install -y libc++-12-dev libc++abi-12-dev
+        sudo apt-get install aptitude
+        sudo aptitude install -y libc++-12-dev libc++abi-12-dev
 

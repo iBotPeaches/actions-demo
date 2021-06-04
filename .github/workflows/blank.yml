@@ -25,33 +25,6 @@ jobs:
 
     - name: restore llvm repos
       run: |
-        wget https://apt.llvm.org/llvm.sh
-        chmod +x llvm.sh
-        sudo ./llvm.sh 12
-
-    - name: install libc++-12
-      run: |
-        sudo apt-get install -y libc++-12-dev libc++abi-12-dev
-
-    - name: show content of libc++-12-dev
-      run: |
-        dpkg -L libc++-12-dev
-        ls -la /usr/lib/x86_64-linux-gnu/libc++*
-        ls -la /usr/share/lintian/overrides/libc++*
-
-#    - name: switch clang version to 12
-#      run: |
-#        sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 101
-#        sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-12 101
-
-#    - name: show current clang version
-#      run: |
-#        clang++ --version
-    
-    - name: test constexpr
-      run: |
-        clang++-12 -std=c++14 -Werror -stdlib=libc++ test-14-constexpr.cpp && ./a.out
-    
-    - name: test auto-lambda
-      run: |
-        clang++-12 -std=c++14 -Werror -stdlib=libc++ test-14-auto-lambda.cpp && ./a.out
+        wget https://packages.microsoft.com/config/ubuntu/$LSB_RELEASE/packages-microsoft-prod.deb
+        dpkg -x packages-microsoft-prod.deb /tmp/x
+        ls -la /tmp/x

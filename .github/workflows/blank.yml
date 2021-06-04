@@ -30,6 +30,7 @@ jobs:
         sudo ./llvm.sh 12
         cat /etc/apt/sources.list
         ls -la /etc/apt/sources.list.d
+        cat /etc/apt/sources.list.d/microsoft-prod.list
         
     - name: restore llvm repos
       run: |

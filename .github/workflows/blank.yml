@@ -28,6 +28,9 @@ jobs:
         wget https://apt.llvm.org/llvm.sh
         chmod +x llvm.sh
         sudo ./llvm.sh 12
+        $llvm_repo=$(grep 'dev.*apt.llvm.org/focal' /etc/apt/sources.list)
+        echo "llvm $llvm_repo"
+         
     
     - name: move llvm repos
       run: |

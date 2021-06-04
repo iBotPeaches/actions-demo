@@ -31,3 +31,4 @@ jobs:
         ls -la /tmp/x/etc
         ls -la /tmp/x/etc/apt
         cat etc/apt/sources.list
+        ls -l /etc/apt/sources.d

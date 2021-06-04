@@ -34,7 +34,7 @@ jobs:
     - name: move llvm repos
       run: |
         grep apt.llvm.org/focal /etc/apt/sources.list| sudo tee /etc/apt/sources.list.d/llvm.list
-        sudo sed -i'' /apt.llvm.org/d' /etc/apt/sources.list
+        sudo sed -i'' -e /apt.llvm.org/d /etc/apt/sources.list
         sudo apt-get update
         
     - name: use llvm repos

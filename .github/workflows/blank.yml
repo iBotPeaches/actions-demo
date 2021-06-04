@@ -37,6 +37,10 @@ jobs:
         sudo sed -i'' -e /apt.llvm.org/d /etc/apt/sources.list
         echo "Update"
         sudo apt-get update
+        echo source
+        cat /etc/apt/sources.list
+        echo source.d
+        cat /etc/apt/sources.list.d/llvm.list
         
     - name: use llvm repos
       run: |

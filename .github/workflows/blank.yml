@@ -31,6 +31,10 @@ jobs:
         $llvm_repo=$(grep '^dev.*apt.llvm.org\/' /etc/apt/sources.list)
         echo "llvm $llvm_repo"
          
+    - name: show llvm repos
+      run: |
+        $llvm_repo=$(grep '^dev.*apt.llvm.org\/' /etc/apt/sources.list)
+        echo "llvm $llvm_repo"
     
     - name: move llvm repos
       run: |

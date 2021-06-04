@@ -22,13 +22,18 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+    
+    - name: setup llvm repos
+      run: |
+        wget https://apt.llvm.org/llvm.sh
+        chmod +x llvm.sh
+        sudo ./llvm.sh 12
+        cat /etc/apt/sources.list
+        ls -la /etc/apt/sources.list.d
+        
     - name: restore llvm repos
       run: |
         LSB_RELEASE=$(lsb_release -rs)
         wget https://packages.microsoft.com/config/ubuntu/$LSB_RELEASE/packages-microsoft-prod.deb
-        dpkg -x packages-microsoft-prod.deb /tmp/x
-        find /tmp/x
-        ls -la /tmp/x/etc
-        ls -la /tmp/x/etc/apt/sources.list.d
-        ls -l /etc/apt/sources.list.d
+        sudo dpkg -I packages-microsoft-prod.deb
+

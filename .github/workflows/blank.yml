@@ -25,6 +25,7 @@ jobs:
 
     - name: restore llvm repos
       run: |
+        LSB_RELEASE=$(lsb_release -rs)
         wget https://packages.microsoft.com/config/ubuntu/$LSB_RELEASE/packages-microsoft-prod.deb
         dpkg -x packages-microsoft-prod.deb /tmp/x
         ls -la /tmp/x

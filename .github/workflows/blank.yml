@@ -28,4 +28,6 @@ jobs:
         LSB_RELEASE=$(lsb_release -rs)
         wget https://packages.microsoft.com/config/ubuntu/$LSB_RELEASE/packages-microsoft-prod.deb
         dpkg -x packages-microsoft-prod.deb /tmp/x
-        ls -la /tmp/x
+        ls -la /tmp/x/etc
+        ls -la /tmp/x/etc/apt
+        cat etc/apt/sources.list

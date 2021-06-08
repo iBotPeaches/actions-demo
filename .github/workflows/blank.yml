@@ -35,7 +35,6 @@ jobs:
           declare -A features
           for version in $versions_sorted; do
             feature=$(echo $version|grep -oP '\d+\.\d+\.\d')
-            echo "$feature => $version"
             features[$feature]=$version
           done
 

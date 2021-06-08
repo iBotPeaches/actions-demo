@@ -26,8 +26,10 @@ jobs:
           release_url="https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/${version}/releases.json"
           curl --output "${version}.json" "${release_url}"
           releases=$(cat "./${version}.json")
-          $s0="$(echo "${releases}" | jq '.releases[]' | jq '.sdk.version') $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version')"
-          echo $s0
+          $s=()
+          s=("${s[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
+          s=("${s[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
+          echo ${s[@]}
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
         done

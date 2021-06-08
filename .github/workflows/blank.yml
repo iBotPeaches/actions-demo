@@ -20,5 +20,10 @@ jobs:
     
     - name: make changes
       run: |
+        sudo apt-get install -y dotnet-sdk-2.1
+        
+    - name: make changes
+      run: |
         dpkg -L dotnet-sdk-3.1
         dpkg -L dotnet-sdk-5.0
+        dpkg -L  dotnet-sdk-2.1

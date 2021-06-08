@@ -37,7 +37,7 @@ jobs:
           unset sss
           for v in $ss; do
             echo "will grep $v"
-            f=`echo $v|grep -oP '\d+\.\d+\.\d'`
+            f=$(echo $v|grep -oP '\d+\.\d+\.\d')
             echo "got $f"
             echo "$f => $v"
             sss["$f"]=$v

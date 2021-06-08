@@ -35,7 +35,7 @@ jobs:
           declare -A features
           for version in $versions; do
             feature=$(echo $version|grep -oP '\d+\.\d+\.\d')
-            sss[$feature]=$version
+            sss["$feature"]=$version
           done
 
           sdks=("${sdks[@]}" $(echo ${features[@]}))

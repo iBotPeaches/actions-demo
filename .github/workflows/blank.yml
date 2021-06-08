@@ -31,12 +31,15 @@ jobs:
           s=("${s[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
           ss=$(echo ${s[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display |     cut -d\" -f2 | sort -u)
           echo ${ss[@]}
-          unset sss
           
+          unset sss
           for v in "${ss[@]}"; do
             echo $v
-            echo $v|grep -oP '\d+\.\d+\.\d'
+            $f=$(echo $v|grep -oP '\d+\.\d+\.\d')
+            sss[$f]=$v
           done
+          
+          echo ${sss[@]}
 
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))

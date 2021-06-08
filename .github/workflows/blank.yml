@@ -33,7 +33,7 @@ jobs:
           echo ${ss[@]}
           unset sss
           
-          for $v in "${ss[@]}"; do
+          for v in "${ss[@]}"; do
             echo $v
             echo $v|grep -oP '\d+\.\d+\.\d'
           done

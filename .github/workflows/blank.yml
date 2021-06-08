@@ -33,3 +33,11 @@ jobs:
         graalvm-version: ${{ env.graalVersion }}
         java-version: ${{ env.javaVersion }}
         native-image: true
+        
+    - name: Set Up SBT
+      shell: bash
+      run: |
+        curl --retry 4 --retry-connrefused -fsSL -o sbt.tgz https://github.com/sbt/sbt/releases/download/v${{env.sbtVersion}}/sbt-${{env.sbtVersion}}.tgz
+        tar -xvzf sbt.tgz
+        echo $GITHUB_WORKSPACE/sbt/bin/ >> $GITHUB_PATH  
+

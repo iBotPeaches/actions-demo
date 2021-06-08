@@ -26,11 +26,13 @@ jobs:
           release_url="https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/${version}/releases.json"
           curl --output "${version}.json" "${release_url}"
           releases=$(cat "./${version}.json")
-          sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
-          sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
+          $s=($(echo "${releases}" | jq '.releases[]' | jq '.sdk.version') $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
+          echo $s
+          #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
+          #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
         done
         
-        echo ${sdks[@]}
-        echo '======='
-        sortedSdks=$(echo ${sdks[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display |     cut -d\" -f2 | sort -u -r)
-        echo ${sortedSdks[@]}
+        #echo ${sdks[@]}
+        #echo '======='
+        #sortedSdks=$(echo ${sdks[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display |     cut -d\" -f2 | sort -u -r)
+        #echo ${sortedSdks[@]}

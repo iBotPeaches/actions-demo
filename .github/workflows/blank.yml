@@ -32,13 +32,15 @@ jobs:
           ss=$(echo ${s[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display |     cut -d\" -f2 | sort -u)
           echo ${ss[@]}
           
+          echo 11111111111
           unset sss
           for v in "${ss[@]}"; do
             f=$(echo $v|grep -oP '\d+\.\d+\.\d')
+            echo "$f => $v"
             sss[$f]=$v
-            echo "$f=>$v"
           done
           
+          echo 222222222222
           for v in "${sss[@]}"; do
             echo $v
           done

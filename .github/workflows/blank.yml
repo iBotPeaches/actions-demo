@@ -29,7 +29,8 @@ jobs:
           s=()
           s=("${s[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
           s=("${s[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
-          echo ${s[@]}
+          ss=$(echo ${s[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display |     cut -d\" -f2 | sort -u -r)
+          echo ${ss[@]}
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
         done

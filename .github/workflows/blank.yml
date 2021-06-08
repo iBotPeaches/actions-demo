@@ -44,9 +44,9 @@ jobs:
           done
           
           echo 222222222222
-          for v in "${sss[@]}"; do
-           #echo $v
-          done
+          #for v in "${sss[@]}"; do
+          # #echo $v
+          #done
 
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))

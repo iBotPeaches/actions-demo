@@ -21,13 +21,13 @@ jobs:
     - name: make changes
       run: |
         DOTNET_VERSIONS="2.1 3.1 5.0"
-        sdks=()
+        sdks=''
         for version in ${DOTNET_VERSIONS}; do
           release_url="https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/${version}/releases.json"
           curl --output "${version}.json" "${release_url}"
           releases=$(cat "./${version}.json")
-          $s=($(echo "${releases}" | jq '.releases[]' | jq '.sdk.version') $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
-          echo $s
+          $s0="$(echo "${releases}" | jq '.releases[]' | jq '.sdk.version') $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version')"
+          echo $s0
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
         done

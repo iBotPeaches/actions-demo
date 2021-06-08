@@ -36,6 +36,7 @@ jobs:
           for v in "${ss[@]}"; do
             f=$(echo $v|grep -oP '\d+\.\d+\.\d')
             sss[$f]=$v
+            echo "$f=>$v"
           done
           
           for v in "${sss[@]}"; do

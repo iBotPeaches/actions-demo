@@ -35,7 +35,7 @@ jobs:
           
           echo 11111111111
           unset sss
-          for v in "$ss"; do
+          for v in $ss; do
             echo "will grep $v"
             f=`echo $v|grep -oP '\d+\.\d+\.\d'`
             echo "got $f"

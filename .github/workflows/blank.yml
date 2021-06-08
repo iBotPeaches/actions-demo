@@ -34,7 +34,6 @@ jobs:
           
           unset sss
           for v in "${ss[@]}"; do
-            echo $v
             f=$(echo $v|grep -oP '\d+\.\d+\.\d')
             sss[$f]=$v
           done

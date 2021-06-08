@@ -31,8 +31,7 @@ jobs:
           s=("${s[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
           ss=$(echo ${s[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display | cut -d\" -f2 | sort -u)
           echo $ss
-          
-          echo 11111111111
+
           unset sss
           declare -A sss
           for v in $ss; do
@@ -43,11 +42,7 @@ jobs:
             sss["$f"]=$v
           done
           
-          echo 222222222222
           echo "${sss[@]}"
-          #for v in "${sss[@]}"; do
-          # echo $v
-          #done
 
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))

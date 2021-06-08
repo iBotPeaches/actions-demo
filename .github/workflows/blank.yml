@@ -35,20 +35,14 @@ jobs:
           unset sss
           declare -A sss
           for v in $ss; do
-            echo "will grep $v"
             f=$(echo $v|grep -oP '\d+\.\d+\.\d')
-            echo "got $f"
-            echo "$f => $v"
             sss["$f"]=$v
           done
           
           echo "${sss[@]}"
 
-          #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
-          #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
+          sdks=("${sdks[@]}" $(echo ${sss[@]}))
         done
         
-        #echo ${sdks[@]}
-        #echo '======='
-        #sortedSdks=$(echo ${sdks[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display |     cut -d\" -f2 | sort -u -r)
-        #echo ${sortedSdks[@]}
+        echo ${sdks[@]}
+        

@@ -39,7 +39,9 @@ jobs:
             sss[$f]=$v
           done
           
-          echo ${sss[@]}
+          for v in "${sss[@]}"; do
+            echo $v
+          done
 
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
           #sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))

@@ -17,13 +17,19 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
+
     - name: make changes
       run: |
-        sudo apt-get install -y dotnet-sdk-2.1
+        versions="2.1 3.1 5.0"
+        sdks=()
+        for version in ${DOTNET_VERSIONS[@]}; do
+          release_url="https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/${version}/releases.json"
+          curl --output "${version}.json" "${release_url}"
+          releases=$(cat "./${version}.json")
+          sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
+          sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
+        done
         
-    - name: make changes
-      run: |
-        dpkg -L dotnet-sdk-3.1
-        dpkg -L dotnet-sdk-5.0
-        dpkg -L  dotnet-sdk-2.1
+        echo $sdks
+        sortedSdks=$(echo ${sdks[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display |     cut -d\" -f2 | sort -u -r)
+        echo $sortedSdks

@@ -27,25 +27,13 @@ jobs:
           curl --output ./${dotnet_version}.json "${release_url}"
           # download_with_retries "${release_url}" "." "${version}.json"
           releases=$(cat "./${dotnet_version}.json")
-          versions=()
-          versions=("${versions[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
-          versions=("${versions[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
-          versions_sorted=$(echo ${versions[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display | cut -d\" -f2 | sort -u)
-
-          echo 'aaaaaaaa'
-          echo ${versions[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display | cut -d\" -f2 | sort -u
-          echo 'bbbbbbbbbb'
-          echo ${versions[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display | cut -d\" -f2 | sort -r |  uniq -w 5
- 
-          unset features
-          declare -A features
-          for version in $versions_sorted; do
-            feature=$(echo $version|grep -oP '\d+\.\d+\.\d')
-            features[$feature]=$version
-          done
-          sdks=("${sdks[@]}" $(echo ${features[@]}))
+          sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdk.version'))
+          sdks=("${sdks[@]}" $(echo "${releases}" | jq '.releases[]' | jq '.sdks[]?' | jq '.version'))
           rm ./${dotnet_version}.json
         done
+      
+        # versions_sorted=$(echo ${versions[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display | cut -d\" -f2 | sort -u)
+        echo ${sdks[@]} | tr ' ' '\n' | grep -v preview | grep -v rc | grep -v display | cut -d\" -f2 | sort -r |  uniq -w 5
         
-        echo ${sdks[@]}
+        #echo ${sdks[@]}
         

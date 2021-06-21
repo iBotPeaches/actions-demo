@@ -20,4 +20,5 @@ jobs:
     
     - name: make changes
       run: |
-        echo 'aaa'|grep 'bbb' > t
+        echo 'aaa'|grep 'bbb'
+        echo $?

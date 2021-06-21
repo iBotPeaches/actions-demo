@@ -20,4 +20,4 @@ jobs:
     
     - name: make changes
       run: |
-        echo 'aaa'|grep 'bbb'
+        echo 'aaa'|grep 'bbb' > t

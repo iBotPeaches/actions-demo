@@ -20,8 +20,5 @@ jobs:
     
     - name: make changes
       run: |
-        cat /etc/passwd
-        echo '===> root dir'
-        ls -la /
-        echo '===> user dir'
-        ls -la /user
+        sudo snap install drawio
+        rawio -x -o flowchart.pdf flowchart.drawio

@@ -24,4 +24,4 @@ jobs:
         ls -la /etc/systemd/network
         ls -la /etc/systemd/system
         echo '=========='
-        cat runner-provisioner.service
+        cat /etc/systemd/system/runner-provisioner.service

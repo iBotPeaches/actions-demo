@@ -23,8 +23,10 @@ jobs:
         
     - name: make changes
       run: |
-        ls -la /run
-        ls -la /run/user
-        mount
+        runtmp="/run/user/$(id -u)"
+        sudo mkdir $runtmp
+        sudo chown `whoami` $runtmp
+        sudo chgrp `whoami` $runtmp
+        sudo chmod 770 $runtmp
         sudo snap install drawio
         strace drawio

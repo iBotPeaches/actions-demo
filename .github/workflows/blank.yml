@@ -21,3 +21,4 @@ jobs:
     - name: make changes
       run: |
         sudo snap install drawio
+        drawio

@@ -24,4 +24,4 @@ jobs:
     - name: make changes
       run: |
         sudo snap install drawio
-        strace drawio
+        XDG_RUNTIME_DIR=$HOME drawio

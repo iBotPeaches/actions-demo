@@ -24,4 +24,4 @@ jobs:
         echo '===> root dir'
         ls -la /
         echo '===> user dir'
-        la -la /user
+        ls -la /user

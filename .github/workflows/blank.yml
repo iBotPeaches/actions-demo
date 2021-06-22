@@ -21,4 +21,4 @@ jobs:
     - name: make changes
       run: |
         sudo snap install drawio
-        rawio -x -o flowchart.pdf flowchart.drawio
+        drawio -x -o flowchart.pdf flowchart.drawio

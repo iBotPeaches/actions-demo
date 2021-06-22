@@ -23,7 +23,8 @@ jobs:
         
     - name: make changes
       run: |
-        echo $XDG_RUNTIME_DIR
-        export XDG_RUNTIME_DIR=$HOME
+        ls -la /run
+        ls -la /run/user
+        mount
         sudo snap install drawio
-        drawio
+        strace drawio

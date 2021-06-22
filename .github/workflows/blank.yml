@@ -29,4 +29,4 @@ jobs:
         sudo chgrp `whoami` $runtmp
         sudo chmod 770 $runtmp
         sudo snap install drawio
-        strace drawio
+        drawio

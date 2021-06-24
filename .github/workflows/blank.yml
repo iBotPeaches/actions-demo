@@ -28,9 +28,12 @@ jobs:
       run: |
         #diff azure-streamanalytics-cicd ./node_modules/.bin/azure-streamanalytics-cicd
         cat ./node_modules/.bin/azure-streamanalytics-cicd
+        echo "====="
+        cat ./node_modules/azure-streamanalytics-cicd/lib/main.js
         cp azure-streamanalytics-cicd ./node_modules/.bin/azure-streamanalytics-cicd
         ./node_modules/.bin/azure-streamanalytics-cicd
 
     - name: build
+      shell: bash
       run: |
         ./node_modules/.bin/azure-streamanalytics-cicd build -project D:\a\actions-demo\actions-demo\ASASample

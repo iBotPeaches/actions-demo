@@ -20,13 +20,19 @@ jobs:
     
     - name: instal cicd 
       run: |
-        npm install -g azure-streamanalytics-cicd
+        #npm install -g azure-streamanalytics-cicd
+        npm install azure-streamanalytics-cicd
+
+    - name: instal dotnet-trace
+      run: |
+        dotnet tool install --global dotnet-trace
         #npm install azure-streamanalytics-cicd
 
     - name: run
       shell: bash
       run: |
-        azure-streamanalytics-cicd --verbose
+        dotnet --verbose ./node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
+        #azure-streamanalytics-cicd --verbose
         #diff azure-streamanalytics-cicd ./node_modules/.bin/azure-streamanalytics-cicd
         #cat ./node_modules/.bin/azure-streamanalytics-cicd
         #echo "====="

@@ -23,9 +23,10 @@ jobs:
         npm install -g azure-streamanalytics-cicd
 
     - name: run
+      shell: bash
       run: |
-        azure-streamanalytics-cicd
+        ./node_modules/.bin/azure-streamanalytics-cicd
 
     - name: build
       run: |
-        azure-streamanalytics-cicd build -project D:\a\actions-demo\actions-demo\ASASample
+        ./node_modules/.bin/azure-streamanalytics-cicd build -project D:\a\actions-demo\actions-demo\ASASample

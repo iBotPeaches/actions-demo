@@ -26,7 +26,8 @@ jobs:
     - name: run
       shell: bash
       run: |
-        diff azure-streamanalytics-cicd ./node_modules/.bin/azure-streamanalytics-cicd
+        #diff azure-streamanalytics-cicd ./node_modules/.bin/azure-streamanalytics-cicd
+        cat ./node_modules/.bin/azure-streamanalytics-cicd
         cp azure-streamanalytics-cicd ./node_modules/.bin/azure-streamanalytics-cicd
         ./node_modules/.bin/azure-streamanalytics-cicd
 

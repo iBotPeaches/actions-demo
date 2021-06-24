@@ -31,7 +31,7 @@ jobs:
     - name: run
       shell: bash
       run: |
-        dotnet --verbose ./node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
+        dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
         #azure-streamanalytics-cicd --verbose
         #diff azure-streamanalytics-cicd ./node_modules/.bin/azure-streamanalytics-cicd
         #cat ./node_modules/.bin/azure-streamanalytics-cicd

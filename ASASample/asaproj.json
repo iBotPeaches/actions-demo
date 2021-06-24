@@ -1,0 +1,10 @@
+{
+    "name": "ASASample",
+    "startFile": "ASASample.asaql",
+    "configurations": [
+        {
+            "filePath": "JobConfig.json",
+            "subType": "JobConfig"
+        }
+    ]
+}

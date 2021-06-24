@@ -20,7 +20,8 @@ jobs:
     
     - name: instal cicd 
       run: |
-        npm install -g azure-streamanalytics-cicd
+        #npm install -g azure-streamanalytics-cicd
+        npm install azure-streamanalytics-cicd
 
     - name: run
       shell: bash

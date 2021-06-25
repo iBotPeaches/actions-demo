@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "azure-streamanalytics-cicd": "2.0.0"
+    "azure-streamanalytics-cicd": "2.1.0"
   }
 }

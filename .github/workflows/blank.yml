@@ -23,13 +23,13 @@ jobs:
         dotnet --version
         dotnet --list-sdks
         #npm install -g azure-streamanalytics-cicd
-        #npm install azure-streamanalytics-cicd
+        npm install azure-streamanalytics-cicd
 
     - name: instal dotnet-trace
       run: |
         #dotnet tool install --global dotnet-trace
     
-    - name: run in bg
+    - name: run in fg
       shell: bash
       run: |
         which dotnet
@@ -39,9 +39,9 @@ jobs:
     - name: trace
       shell: bash
       run: |
-        dotnet-trace ps | awk '/dotnet.exe/ {print $1}'
-        pid=$(dotnet-trace ps | awk '/dotnet.exe/ {print $1}')
-        echo "pid=$pid"
+        #dotnet-trace ps | awk '/dotnet.exe/ {print $1}'
+        #pid=$(dotnet-trace ps | awk '/dotnet.exe/ {print $1}')
+        #echo "pid=$pid"
         #dotnet-trace collect --process-id $pid
         #start /b dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
         #azure-streamanalytics-cicd --verbose

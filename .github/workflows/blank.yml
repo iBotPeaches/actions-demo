@@ -28,10 +28,10 @@ jobs:
         dotnet tool install --global dotnet-trace
         #npm install azure-streamanalytics-cicd
 
-    - name: run
+    - name: run in bg
       shell: bash
       run: |
-        dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
+        start /b dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
         #azure-streamanalytics-cicd --verbose
         #diff azure-streamanalytics-cicd ./node_modules/.bin/azure-streamanalytics-cicd
         #cat ./node_modules/.bin/azure-streamanalytics-cicd

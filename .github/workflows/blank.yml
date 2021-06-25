@@ -38,6 +38,7 @@ jobs:
         dotnet-trace ps | awk '/dotnet.exe/ {print $1}'
         pid=$(dotnet-trace ps | awk '/dotnet.exe/ {print $1}')
         echo "pid=$pid"
+        dotnet-trace collect --process-id $pid
         #start /b dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
         #azure-streamanalytics-cicd --verbose
         #diff azure-streamanalytics-cicd ./node_modules/.bin/azure-streamanalytics-cicd

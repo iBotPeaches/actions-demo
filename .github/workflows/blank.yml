@@ -21,6 +21,7 @@ jobs:
     - name: instal cicd 
       run: |
         dotnet --version
+        dir C:\Program Files\dotnet\sdk
         #npm install -g azure-streamanalytics-cicd
         #npm install azure-streamanalytics-cicd
 

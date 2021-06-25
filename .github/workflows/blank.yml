@@ -32,7 +32,7 @@ jobs:
     - name: run in fg
       shell: bash
       run: |
-        which dotnet
+        dir
         dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
         #nohup dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll &
 

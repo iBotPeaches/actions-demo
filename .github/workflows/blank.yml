@@ -33,6 +33,7 @@ jobs:
       shell: bash
       run: |
         which dotnet
+        dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
         #nohup dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll &
 
     - name: trace

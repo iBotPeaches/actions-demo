@@ -27,12 +27,13 @@ jobs:
 
     - name: instal dotnet-trace
       run: |
+        dir
         #dotnet tool install --global dotnet-trace
     
     - name: run in fg
       shell: bash
       run: |
-        dir
+        pwd
         dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
         #nohup dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll &
 

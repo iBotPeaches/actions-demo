@@ -20,6 +20,7 @@ jobs:
     
     - name: instal cicd 
       run: |
+        dotnet -d
         #npm install -g azure-streamanalytics-cicd
         npm install azure-streamanalytics-cicd
 

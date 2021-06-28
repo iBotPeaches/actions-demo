@@ -21,7 +21,7 @@ jobs:
     - name: instal dotnet-core-uninstall 
       run: |
         curl --output dotnet-core-uninstall.msi -L https://github.com/dotnet/cli-lab/releases/download/1.2.206301/dotnet-core-uninstall-1.2.206301.msi
-        msi /i dotnet-core-uninstall.msi /QN /norestart
+        msiexec /i dotnet-core-uninstall.msi /QN /norestart
         dotnet-core-uninstall list
     #- name: instal cicd 
     #  run: |

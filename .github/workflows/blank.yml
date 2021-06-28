@@ -18,28 +18,33 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: instal cicd 
+    - name: instal dotnet-core-uninstall 
       run: |
-        dotnet --version
-        dotnet --list-sdks
+        curl --output dotnet-core-uninstall.msi -L https://github.com/dotnet/cli-lab/releases/download/1.2.206301/dotnet-core-uninstall-1.2.206301.msi
+        msi /i dotnet-core-uninstall.msi /QN /norestart
+        dotnet-core-uninstall list
+    #- name: instal cicd 
+    #  run: |
+    #    dotnet --version
+    #    dotnet --list-sdks
         #npm install -g azure-streamanalytics-cicd
-        npm install azure-streamanalytics-cicd
+     #   npm install azure-streamanalytics-cicd
 
-    - name: instal dotnet-trace
-      run: |
-        dir
+    #- name: instal dotnet-trace
+    #  run: |
+    #    dir
         #dotnet tool install --global dotnet-trace
     
-    - name: run in fg
-      shell: bash
-      run: |
-        pwd
-        dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
+    #- name: run in fg
+    #  shell: bash
+    #  run: |
+    #    pwd
+    #    dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
         #nohup dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll &
 
-    - name: trace
-      shell: bash
-      run: |
+   # - name: trace
+   #   shell: bash
+   #   run: |
         #dotnet-trace ps | awk '/dotnet.exe/ {print $1}'
         #pid=$(dotnet-trace ps | awk '/dotnet.exe/ {print $1}')
         #echo "pid=$pid"
@@ -53,7 +58,7 @@ jobs:
         #cp azure-streamanalytics-cicd ./node_modules/.bin/azure-streamanalytics-cicd
         #./node_modules/.bin/azure-streamanalytics-cicd
 
-    - name: build
-      shell: bash
-      run: |
-        #./node_modules/.bin/azure-streamanalytics-cicd build -project D:\a\actions-demo\actions-demo\ASASample
+  #  - name: build
+  #    shell: bash
+  #    run: |
+  #      #./node_modules/.bin/azure-streamanalytics-cicd build -project D:\a\actions-demo\actions-demo\ASASample

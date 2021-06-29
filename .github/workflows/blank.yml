@@ -32,14 +32,14 @@ jobs:
         dir "C:\Program Files (x86)\dotnet-core-uninstall"
         if ($exitCode -eq 0 -or $exitCode -eq 3010) {
             Write-Host "Installation successful"
-            Get-Content -Path i.log
         } else {
             Write-Host "Non zero exit code returned by the installation process: -${exitCode}-"
             Get-Content -Path i.log
             exit $exitCode
         }
         
-        dotnet-core-uninstall list
+        $dcu = "C:\Program Files (x86)\dotnet-core-uninstall\dotnet-core-uninstall.exe"
+        $dcu list
     #- name: instal cicd 
     #  run: |
     #    dotnet --version

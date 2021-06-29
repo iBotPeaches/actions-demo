@@ -27,10 +27,10 @@ jobs:
         curl --output dotnet-core-uninstall.msi -L https://github.com/dotnet/cli-lab/releases/download/1.2.206301/dotnet-core-uninstall-1.2.206301.msi
         $ArgumentList = ('/i', 'dotnet-core-uninstall.msi', '/QN', '/norestart', '/l*', 'i.log')
         $filePath = "msiexec.exe"
-        Start-Process -FilePath $filePath -ArgumentList $ArgumentList -Wait -PassThru
+        $process = Start-Process -FilePath $filePath -ArgumentList $ArgumentList -Wait -PassThru
         $exitCode = $process.ExitCode
         dir "C:\Program Files (x86)\dotnet-core-uninstall"
-        if ($exitCode -eq 0 -or $exitCode -eq 3010 -or [string]::IsNullOrEmpty($exitCode) {
+        if ($exitCode -eq 0 -or $exitCode -eq 3010) {
             Write-Host "Installation successful"
             Get-Content -Path i.log
         } else {

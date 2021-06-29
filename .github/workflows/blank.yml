@@ -22,41 +22,43 @@ jobs:
       run: |
         dotnet --info
     
-    - name: instal dotnet-core-uninstall 
+#    - name: instal dotnet-core-uninstall 
+#      run: |
+#        curl --output dotnet-core-uninstall.msi -L https://github.com/dotnet/cli-lab/releases/download/1.2.206301/dotnet-core-uninstall-1.2.206301.msi
+#        $ArgumentList = ('/i', 'dotnet-core-uninstall.msi', '/QN', '/norestart', '/l*', 'i.log')
+#        $filePath = "msiexec.exe"
+#        $process = Start-Process -FilePath $filePath -ArgumentList $ArgumentList -Wait -PassThru
+#        $exitCode = $process.ExitCode
+#        dir "C:\Program Files (x86)\dotnet-core-uninstall"
+#        if ($exitCode -eq 0 -or $exitCode -eq 3010) {
+#            Write-Host "Installation successful"
+#        } else {
+#            Write-Host "Non zero exit code returned by the installation process: -${exitCode}-"
+#            Get-Content -Path i.log
+#            exit $exitCode
+#        }
+#        
+#        $dcu = "C:\Program Files (x86)\dotnet-core-uninstall\dotnet-core-uninstall.exe"
+#        &$dcu list
+
+    - name: instal cicd 
+      shell: bash
       run: |
-        curl --output dotnet-core-uninstall.msi -L https://github.com/dotnet/cli-lab/releases/download/1.2.206301/dotnet-core-uninstall-1.2.206301.msi
-        $ArgumentList = ('/i', 'dotnet-core-uninstall.msi', '/QN', '/norestart', '/l*', 'i.log')
-        $filePath = "msiexec.exe"
-        $process = Start-Process -FilePath $filePath -ArgumentList $ArgumentList -Wait -PassThru
-        $exitCode = $process.ExitCode
-        dir "C:\Program Files (x86)\dotnet-core-uninstall"
-        if ($exitCode -eq 0 -or $exitCode -eq 3010) {
-            Write-Host "Installation successful"
-        } else {
-            Write-Host "Non zero exit code returned by the installation process: -${exitCode}-"
-            Get-Content -Path i.log
-            exit $exitCode
-        }
-        
-        $dcu = "C:\Program Files (x86)\dotnet-core-uninstall\dotnet-core-uninstall.exe"
-        &$dcu list
-    #- name: instal cicd 
-    #  run: |
-    #    dotnet --version
-    #    dotnet --list-sdks
+        dotnet --version
         #npm install -g azure-streamanalytics-cicd
-     #   npm install azure-streamanalytics-cicd
+        npm install azure-streamanalytics-cicd
 
     #- name: instal dotnet-trace
     #  run: |
     #    dir
         #dotnet tool install --global dotnet-trace
     
-    #- name: run in fg
-    #  shell: bash
-    #  run: |
-    #    pwd
-    #    dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
+    - name: run in fg
+      shell: bash
+      run: |
+        pwd
+        dotnet --version
+        dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll
         #nohup dotnet node_modules/azure-streamanalytics-cicd/bin/LocalRunService.dll &
 
    # - name: trace

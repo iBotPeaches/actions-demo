@@ -39,7 +39,7 @@ jobs:
         }
         
         $dcu = "C:\Program Files (x86)\dotnet-core-uninstall\dotnet-core-uninstall.exe"
-        $dcu list
+        &$dcu list
     #- name: instal cicd 
     #  run: |
     #    dotnet --version

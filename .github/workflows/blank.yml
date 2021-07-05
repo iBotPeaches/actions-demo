@@ -18,9 +18,22 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: make changes
+    - name: describe cmake 3.20.5
       run: |
         ls -la $(which cmake)
         cmake --version
         echo $CMAKE_ROOT
         ls -l /usr/local/share
+        
+    - name: disable cmake 3.20.5
+      run: |
+        echo "chmod -x $(which cmake)"
+        chmod -x $(which cmake)
+        echo "cmake --version"
+        cmake --version
+        echo "hash -l"
+        hash -l
+        echo "hash -r"
+        hash -r
+        echo "cmake --version"
+        cmake --version

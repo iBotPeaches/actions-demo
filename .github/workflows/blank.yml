@@ -78,4 +78,8 @@ jobs:
         cmake --version
         echo "hash -l"
         hash -l
+        echo "cmake --version"
+        cmake --version
+        set
         ls -l /usr/share
+        ls -l usr/local/share/

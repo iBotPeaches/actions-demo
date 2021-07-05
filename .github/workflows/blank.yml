@@ -19,12 +19,14 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: describe cmake 3.16
+      continue-on-error: true
       run: |
         ls -la /usr/bin/cmake || echo "cmake does not exists"
         /usr/bin/cmake --version || echo "...and can not be run"
         ls -l /usr/share/cmake 
         
     - name: describe cmake 3.20.5
+      continue-on-error: true
       run: |
         ls -la $(which cmake)
         cmake --version
@@ -32,6 +34,7 @@ jobs:
         ls -l /usr/local/share
         
     - name: disable cmake 3.20.5
+      continue-on-error: true
       run: |
         echo "chmod -x $(which cmake)"
         sudo chmod -x $(which cmake)
@@ -47,6 +50,7 @@ jobs:
         hash -l
         
     - name: another step
+      continue-on-error: true
       run: |
         set
         echo "hash -l"
@@ -63,6 +67,7 @@ jobs:
         cmake --version
         
     - name: install cmake 3.16
+      continue-on-error: true
       run: |
         sudo apt-get install cmake
         echo "hash -l"

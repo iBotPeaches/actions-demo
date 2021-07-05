@@ -36,13 +36,10 @@ jobs:
     - name: disable cmake 3.20.5
       continue-on-error: true
       run: |
-        echo "chmod -x $(which cmake)"
-        sudo chmod -x $(which cmake)
-        sudo rm $(which cmake)
-        sudo chmod -x $(which ccmake)
-        sudo chmod -x $(which cmake-gui)
-        sudo chmod -x $(which cpack)
-        sudo chmod -x $(which ctest)
+        CMAKE=$(which cmake)
+        echo "chmod -x $CMAKE"
+        sudo chmod -x $CMAKE
+        sudo rm $CMAKE
         echo "cmake --version"
         cmake --version || echo "Can't run"
         echo "hash -l"

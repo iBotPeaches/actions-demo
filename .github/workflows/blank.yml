@@ -87,3 +87,10 @@ jobs:
         set
         ls -l /usr/share
         ls -l /usr/local/share/
+        
+    - name: investigate with strace
+      continue-on-error: true
+      run: |
+        sudo apt-get install strace
+        echo `which cmake`
+        strace -f -ff $(which cmake)

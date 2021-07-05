@@ -38,6 +38,7 @@ jobs:
       run: |
         echo "chmod -x $(which cmake)"
         sudo chmod -x $(which cmake)
+        sudo rm $(which cmake)
         sudo chmod -x $(which ccmake)
         sudo chmod -x $(which cmake-gui)
         sudo chmod -x $(which cpack)
@@ -88,12 +89,18 @@ jobs:
         ls -l /usr/share
         ls -l /usr/local/share/
         
-    - name: investigate with strace
+    - name: install strace
       continue-on-error: true
       run: |
         sudo apt-get install strace
-        echo `which cmake`
+        
+    - name: investigate with strace which cmake
+      continue-on-error: true
+      run: |
         strace -f -ff $(which cmake) --version
-        echo "======"
+        
+    - name: investigate with strace cmake
+      continue-on-error: true
+      run: |
         strace -f -ff cmake --version
         

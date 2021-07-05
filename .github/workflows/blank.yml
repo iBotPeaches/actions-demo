@@ -93,4 +93,7 @@ jobs:
       run: |
         sudo apt-get install strace
         echo `which cmake`
-        strace -f -ff $(which cmake)
+        strace -f -ff $(which cmake) --version
+        echo "======"
+        strace -f -ff cmake --version
+        

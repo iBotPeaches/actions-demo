@@ -42,6 +42,10 @@ jobs:
         
     - name: another step
       run: |
+        echo "hash -l"
+        hash -l
+        echo "hash -r"
+        hash -r
         echo "cmake --version"
         cmake --version
         echo "hash -l"

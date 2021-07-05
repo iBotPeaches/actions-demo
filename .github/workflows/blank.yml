@@ -76,3 +76,6 @@ jobs:
         hash -r
         echo "cmake --version"
         cmake --version
+        echo "hash -l"
+        hash -l
+        ls -l /usr/share

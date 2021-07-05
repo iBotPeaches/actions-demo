@@ -36,7 +36,9 @@ jobs:
         echo "hash -r"
         hash -r
         echo "cmake --version"
-        cmake --version
+        cmake --version || echo "Can't run anyway"
+        echo "hash -l"
+        hash -l
         
     - name: another step
       run: |

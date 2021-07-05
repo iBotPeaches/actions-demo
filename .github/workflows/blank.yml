@@ -23,4 +23,4 @@ jobs:
         ls -la $(which cmake)
         cmake --version
         echo $CMAKE_ROOT
-        ls -l /usr/share/cmake
+        ls -l /usr/local/share

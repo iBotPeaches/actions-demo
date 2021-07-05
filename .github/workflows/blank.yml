@@ -83,4 +83,4 @@ jobs:
         cmake --version
         set
         ls -l /usr/share
-        ls -l usr/local/share/
+        ls -l /usr/local/share/

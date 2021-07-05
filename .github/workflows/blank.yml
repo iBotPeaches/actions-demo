@@ -20,9 +20,9 @@ jobs:
     
     - name: describe cmake 3.16
       run: |
-        ls -la /usr/bin/cmake
-        /usr/bin/cmake --version
-        ls -l /usr/share/cmake
+        ls -la /usr/bin/cmake || echo "cmake does not exists"
+        /usr/bin/cmake --version || echo "...and can not be run"
+        ls -l /usr/share/cmake 
         
     - name: describe cmake 3.20.5
       run: |
@@ -55,6 +55,16 @@ jobs:
         hash -r
         echo "cmake --version"
         cmake --version
+        echo "hash -l"
+        hash -l
+        echo "hash -r"
+        hash -r
+        echo "cmake --version"
+        cmake --version
+        
+    - name: install cmake 3.16
+      run: |
+        sudo apt-get install cmake
         echo "hash -l"
         hash -l
         echo "hash -r"

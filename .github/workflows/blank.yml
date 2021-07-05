@@ -30,7 +30,7 @@ jobs:
         echo "chmod -x $(which cmake)"
         sudo chmod -x $(which cmake)
         echo "cmake --version"
-        cmake --version
+        cmake --version || echo "Can't run"
         echo "hash -l"
         hash -l
         echo "hash -r"

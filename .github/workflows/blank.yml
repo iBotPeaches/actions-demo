@@ -39,3 +39,7 @@ jobs:
     - name: find all lapack.cmake now
       run: |
         sudo find /usr -iname FindLAPACK.cmake
+
+    - name: diff
+      run: |
+        diff /usr/local/share/cmake-3.20/Modules/FindLAPACK.cmake /usr/local/share/cmake-3.21/Modules/FindLAPACK.cmake

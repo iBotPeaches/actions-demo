@@ -17,14 +17,24 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
+
+    - name: current version
+      run: |
+        cmake --version
+
+    - name: build with current cmake
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+
     - name: find all lapack.cmake
       run: |
         sudo find /usr -iname FindLAPACK.cmake
     
-    - name: current version
+    - name: find all lapack.cmake
       run: |
-        cmake --version
+        sudo find /usr -iname FindLAPACK.cmake
 
 
     - name: downgrade cmake
@@ -43,3 +53,4 @@ jobs:
     - name: diff
       run: |
         diff /usr/local/share/cmake-3.20/Modules/FindLAPACK.cmake /usr/local/share/cmake-3.21/Modules/FindLAPACK.cmake
+

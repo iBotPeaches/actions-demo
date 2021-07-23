@@ -18,35 +18,24 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: make changes
+    - name: find all lapack.cmake
       run: |
-        df -m
-        docker images
-        docker image rm debian:8
-        docker image rm ubuntu:14.04
-        docker image rm alpine:3.7
-        docker image rm alpine:3.8
-        docker image rm alpine:3.9
-        docker image rm alpine:3.10
-        docker image prune -a
-        df -m
-        docker pull alpine:3.11
-        df -m
-        docker pull alpine:3.12
-        df -m
-        docker pull alpine:3.13
-        df -m
-        docker pull debian:10
-        df -m
-        docker pull ubuntu:16.04
-        df -m
-        docker pull ubuntu:18.04
-        df -m
-        docker pull ubuntu:20.04
-        df -m
+        sudo find /usr -iname FindLAPACK.cmake
+    
+    - name: current version
+      run: |
+        cmake --version
 
 
+    - name: downgrade cmake
+      run: |
+        sh_url=https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5-linux-x86_64.sh
+            curl -sL ${sh_url} -o cmakeinstall.sh && chmod +x cmakeinstall.sh && sudo bash ./cmakeinstall.sh --prefix=/usr/local --exclude-subdir && rm cmakeinstall.sh
 
+    - name: downgrade version
+      run: |
+        cmake --version
 
-
-
+    - name: find all lapack.cmake now
+      run: |
+        sudo find /usr -iname FindLAPACK.cmake

@@ -21,3 +21,4 @@ jobs:
     - name: show current status
       run: |
         sudo swapon --show
+        free -h

@@ -27,7 +27,7 @@ jobs:
         echo "df -h"
         df -h
 
-    - name: show current status
+    - name: increase swap
       run: |
         echo "fallocate"
         sudo fallocate -l 6G /swapfile0

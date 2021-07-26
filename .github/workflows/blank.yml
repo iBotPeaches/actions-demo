@@ -20,5 +20,25 @@ jobs:
     
     - name: show current status
       run: |
+        echo "swapon show"
         sudo swapon --show
+        echo "free -h"
         free -h
+        echo "df -h"
+        df -h
+
+    - name: show current status
+      run: |
+        echo "fallocate"
+        sudo fallocate -l 6G /swapfile0
+        ls -lh /swapfile0
+        sudo chmod 600 /swapfile0
+        echo "mkswap"
+        sudo mkswap /swapfile0
+        sudo swapon /swapfile0
+        echo "swapon show"
+        sudo swapon --show
+        echo "free -h"
+        free -h
+        echo "df -h"
+        df -h

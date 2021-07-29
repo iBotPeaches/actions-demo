@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  postgresql:
+    image: postgres:11
+    environment:
+      - POSTGRES_USER=openslides
+      - POSTGRES_PASSWORD=openslides
+      - POSTGRES_DB=openslides

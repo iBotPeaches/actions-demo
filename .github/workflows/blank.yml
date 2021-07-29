@@ -23,6 +23,7 @@ jobs:
         docker-compose --version
 
     - name: repro
+      continue-on-error: true
       run: |
         docker-compose -f docker-compose.yml up -d
 

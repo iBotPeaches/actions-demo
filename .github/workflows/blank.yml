@@ -18,6 +18,17 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: version
+    - name: version 
+      run: |
+        docker-compose --version
+
+    - name: download 1.29.1
+      run: |
+        sudo rm /usr/local/bin/docker-compose
+        URI=https://github.com/docker/compose/releases/download/1.29.1/docker-compose-Linux-x86_64
+        sudo curl -L $URL -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+    
+    - name: version 1.29.1
       run: |
         docker-compose --version

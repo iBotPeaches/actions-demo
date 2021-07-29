@@ -1,21 +1,21 @@
 version: "3"
 
 services:
-  auth:
-    image: openslides-auth-dev
-    restart: always
-    depends_on:
-      - datastore-reader
-      - datastore-writer
-      - message_bus
-      - cache
-    env_file: services.env
-    volumes:
-      - ./auth/libraries:/app/libraries
-      - ./auth/src:/app/src
-      - ./auth/test:/app/test
-    ports:
-      - "9004:9004"
+#  auth:
+#    image: openslides-auth-dev
+#    restart: always
+#    depends_on:
+#      - datastore-reader
+#      - datastore-writer
+#      - message_bus
+#      - cache
+#    env_file: services.env
+#    volumes:
+#      - ./auth/libraries:/app/libraries
+#      - ./auth/src:/app/src
+#      - ./auth/test:/app/test
+#    ports:
+#      - "9004:9004"
 
   message_bus:
     image: redis:alpine

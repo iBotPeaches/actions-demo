@@ -20,4 +20,4 @@ jobs:
     
     - name: repro
       run: |
-       docker run registry.fedoraproject.org/fedora:rawhide python3 -c 'import threading; threading.Thread(None, lambda: print(123)).start()'
+       docker run --security-opt seccomp=unconfined registry.fedoraproject.org/fedora:rawhide python3 -c 'import threading; threading.Thread(None, lambda: print(123)).start()'

@@ -18,12 +18,6 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: make changes
+    - name: repro
       run: |
-        grep CONFIG_SECCOMP= /boot/config-$(uname -r)
-
-
-
-
-
-
+        docker run fedora:rawhide python3 -c 'import threading; threading.Thread(None, lambda: print(123)).start()'

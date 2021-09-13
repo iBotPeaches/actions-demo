@@ -20,7 +20,7 @@ jobs:
     
     - name: make changes
       run: |
-        cat 'read' > r.sh
+        echo 'read' > r.sh
         chmod +x r.sh
         echo y|./r.sh
         
@@ -36,6 +36,7 @@ jobs:
     - name: make changes
       shell: cmd
       run: |
+        echo on
         echo 'pause' > p.cmd
         p < nul
 

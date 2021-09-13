@@ -37,6 +37,6 @@ jobs:
       shell: cmd
       run: |
         echo on
-        echo 'pause' > p.cmd
+        echo pause > p.cmd
         p < nul
 

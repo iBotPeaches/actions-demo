@@ -20,7 +20,7 @@ jobs:
     
     - name: make changes
       run: |
-        echo 'read' > r.sh
+        echo 'read -n 1 -t 20' > r.sh
         chmod +x r.sh
         ./r.sh
         

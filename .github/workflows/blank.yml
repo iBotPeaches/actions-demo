@@ -22,7 +22,7 @@ jobs:
       run: |
         echo 'read' > r.sh
         chmod +x r.sh
-        echo y|./r.sh
+        ./r.sh
         
   win:
     # The type of runner that the job will run on
@@ -38,5 +38,5 @@ jobs:
       run: |
         echo on
         echo pause > p.cmd
-        p < nul
+        p
 

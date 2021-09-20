@@ -25,12 +25,8 @@ jobs:
 
         TIZEN_STUDIO=$GITHUB_WORKSPACE/tizen-studio
         ./web-cli_Tizen_Studio_4.1_ubuntu-64.bin --accept-license $TIZEN_STUDIO
-        ls -la $TIZEN_STUDIO
-        ls -la $TIZEN_STUDIO/tools
-        ls -la $TIZEN_STUDIO/tools/ide
-        ls -la $TIZEN_STUDIO/tools/ide/bin
-        ls -la $TIZEN_STUDIO/tools/ide/bin/tizen
-        export PATH=$TIZEN_STUDIO/tools/ide/bin/tizen:$PATH
+
+        export PATH=$TIZEN_STUDIO/tools/ide/bin:$PATH
 
         tizen build-web -- dist
         tizen package -t wgt -s certificiate-name -o tizen -- tizen/.buildResult

@@ -39,8 +39,8 @@ jobs:
         <?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <profiles active="tizen-signing-test-profile" version="3.1">
         <profile name="tizen-signing-test-profile">
-        <profileitem ca="tizen-studio/tools/certificate-generator/certificates/developer/tizen-developer-ca.cer" distributor="0" key="$GITHUB_WORKSPACE/test-author-signer.p12" password="passwordfortestauthorsigner" rootca=""/>
-        <profileitem ca="tizen-studio/tools/certificate-generator/certificates/distributor/tizen-distributor-ca.cer" distributor="1" key="tizen-studio/tools/certificate-generator/certificates/distributor/tizen-distributor-signer.p12" password="tizenpkcs12passfordsigner" rootca=""/>
+        <profileitem ca="$GITHUB_WORKSPACE/tizen-studio/tools/certificate-generator/certificates/developer/tizen-developer-ca.cer" distributor="0" key="$GITHUB_WORKSPACE/test-author-signer.p12" password="passwordfortestauthorsigner" rootca=""/>
+        <profileitem ca="$GITHUB_WORKSPACE/tizen-studio/tools/certificate-generator/certificates/distributor/tizen-distributor-ca.cer" distributor="1" key="$GITHUB_WORKSPACE/tizen-studio/tools/certificate-generator/certificates/distributor/tizen-distributor-signer.p12" password="tizenpkcs12passfordsigner" rootca=""/>
         <profileitem ca="" distributor="2" key="" password="" rootca=""/>
         </profile>
         </profiles>

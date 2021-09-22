@@ -45,6 +45,7 @@ jobs:
         </profile>
         </profiles>
         EOF
+        chmod a-w $GLOBAL_PROFILES_PATH
 
         tizen create web-project -n testproj -p mobile-6.0 -t WebBasicApplication
         cd testproj

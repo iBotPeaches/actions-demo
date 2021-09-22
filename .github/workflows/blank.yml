@@ -36,8 +36,8 @@ jobs:
         export PATH=$TIZEN_STUDIO/tools/ide/bin:$PATH
 
         tizen list web-project
-        tizen create web-project -n testproj -p mobile-6.0 -t WebBasicApplication -- dist
+        tizen create web-project -n testproj -p mobile-6.0 -t WebBasicApplication
         ls -la
-        cd dist
-        tizen build-web -- dist
+        cd testproj
+        tizen build-web
         tizen package -t wgt -s certificiate-name -o tizen -- tizen/.buildResult

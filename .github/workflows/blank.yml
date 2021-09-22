@@ -46,7 +46,6 @@ jobs:
         </profiles>
         EOF
 
-        tizen list web-project
         tizen create web-project -n testproj -p mobile-6.0 -t WebBasicApplication
         cd testproj
         tizen build-web

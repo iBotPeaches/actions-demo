@@ -5,7 +5,7 @@ name: CI
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on: [push]
-    
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -17,26 +17,30 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
+
     - name: wget
       run: |
         wget http://download.tizen.org/sdk/Installer/tizen-studio_4.1/web-cli_Tizen_Studio_4.1_ubuntu-64.bin
-    
+
     - name: install
       run: |
         chmod a+x web-cli_Tizen_Studio_4.1_ubuntu-64.bin
 
         TIZEN_STUDIO=$GITHUB_WORKSPACE/tizen-studio
         ./web-cli_Tizen_Studio_4.1_ubuntu-64.bin --accept-license $TIZEN_STUDIO
-        
+
     - name: run
       run: |
         set -x
         TIZEN_STUDIO=$GITHUB_WORKSPACE/tizen-studio
         export PATH=$TIZEN_STUDIO/tools/ide/bin:$PATH
 
+        GLOBAL_PROFILES_PATH=tizen cli-config -l | grep -i 'default.profiles.path=' | sed 's/^default\.profiles\.path=//g'
+        mv example_insecure_profile.xml $GLOBAL_PROFILES_PATH
+        chmod a-w $GLOBAL_PROFILES_PATH
+
         tizen list web-project
         tizen create web-project -n testproj -p mobile-6.0 -t WebBasicApplication
         cd testproj
         tizen build-web
-        tizen package -t wgt -s certificiate-name -o tizen 
+        tizen package -t wgt -s tizen-signing-test-profile -o tizen

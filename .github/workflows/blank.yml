@@ -64,4 +64,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: demo-${{ github.sha }}.wgt
-        path: testproj/testproj.wgt
+        path: tizen/testproj.wgt

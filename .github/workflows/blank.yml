@@ -51,12 +51,9 @@ jobs:
         tizen build-web
         tizen package -t wgt -s tizen-signing-test-profile
 
-    - name: Upload error log artifact
+    - name: Show error log artifact
       if: failure()
-      uses: actions/upload-artifact@v2
-      with:
-        name: tizen-studio-cli.log
-        path: ${{ github.workspace }}/tizen-studio-data/cli/logs/cli.log
+      run: cat ${{ github.workspace }}/tizen-studio-data/cli/logs/cli.log
 
     - name: Upload Tizen package artifact
       uses: actions/upload-artifact@v2

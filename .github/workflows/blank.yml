@@ -35,6 +35,7 @@ jobs:
         TIZEN_STUDIO=$GITHUB_WORKSPACE/tizen-studio
         export PATH=$TIZEN_STUDIO/tools/ide/bin:$PATH
 
+        tizen list web-project
         tizen create web-project -n x -- dist
         ls -la
         cd dist

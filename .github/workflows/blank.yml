@@ -57,3 +57,9 @@ jobs:
       with:
         name: tizen-studio-cli.log
         path: ${{ github.workspace }}/tizen-studio-data/cli/logs/cli.log
+
+    - name: Upload Tizen package artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: demo-${{ github.sha }}.wgt
+        path: testproj/WebBasicApplication.wgt

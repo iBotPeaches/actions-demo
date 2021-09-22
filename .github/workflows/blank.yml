@@ -18,14 +18,20 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: make changes
+    - name: wget
       run: |
         wget http://download.tizen.org/sdk/Installer/tizen-studio_4.1/web-cli_Tizen_Studio_4.1_ubuntu-64.bin
+    
+    - name: install
+      run: |
         chmod a+x web-cli_Tizen_Studio_4.1_ubuntu-64.bin
 
         TIZEN_STUDIO=$GITHUB_WORKSPACE/tizen-studio
         ./web-cli_Tizen_Studio_4.1_ubuntu-64.bin --accept-license $TIZEN_STUDIO
-
+        
+    - name: run
+      run: |
+        TIZEN_STUDIO=$GITHUB_WORKSPACE/tizen-studio
         export PATH=$TIZEN_STUDIO/tools/ide/bin:$PATH
 
         tizen build-web -- dist

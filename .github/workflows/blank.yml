@@ -34,7 +34,7 @@ jobs:
         TIZEN_STUDIO=$GITHUB_WORKSPACE/tizen-studio
         export PATH=$TIZEN_STUDIO/tools/ide/bin:$PATH
 
-        GLOBAL_PROFILES_PATH=tizen cli-config -l | grep -i 'default.profiles.path=' | sed 's/^default\.profiles\.path=//g'
+        GLOBAL_PROFILES_PATH=$(tizen cli-config -l | grep -i 'default.profiles.path=' | sed 's/^default\.profiles\.path=//g')
         cat > $GLOBAL_PROFILES_PATH <<EOF
         <?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <profiles active="tizen-signing-test-profile" version="3.1">

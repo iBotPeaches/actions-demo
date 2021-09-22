@@ -40,4 +40,5 @@ jobs:
         ls -la
         cd testproj
         tizen build-web
-        tizen package -t wgt -s certificiate-name -o tizen -- tizen/.buildResult
+        tizen package -t wgt -s certificiate-name -o tizen 
+        #-- tizen/.buildResult

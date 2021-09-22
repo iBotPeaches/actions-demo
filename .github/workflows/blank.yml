@@ -49,7 +49,7 @@ jobs:
         tizen create web-project -n testproj -p mobile-6.0 -t WebBasicApplication
         cd testproj
         tizen build-web
-        tizen package -t wgt -s tizen-signing-test-profile -o tizen
+        tizen package -t wgt -s tizen-signing-test-profile
 
     - name: Upload error log artifact
       if: failure()

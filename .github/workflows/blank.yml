@@ -31,10 +31,12 @@ jobs:
         
     - name: run
       run: |
+        set -x
         TIZEN_STUDIO=$GITHUB_WORKSPACE/tizen-studio
         export PATH=$TIZEN_STUDIO/tools/ide/bin:$PATH
 
-        tizen create web-project -- dist
-        cd t
+        tizen create web-project -n x -- dist
+        ls -la
+        cd dist
         tizen build-web -- dist
         tizen package -t wgt -s certificiate-name -o tizen -- tizen/.buildResult
